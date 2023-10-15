@@ -1,0 +1,9 @@
+.profile-stats {
+    display: flex;
+    justify-content: space-between;
+  
+    .stat-item {
+      flex: 1;
+      text-align: center;
+    }
+  }

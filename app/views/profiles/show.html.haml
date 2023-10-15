@@ -1,0 +1,25 @@
+.container
+	%h1= @profile.user.username
+
+	- if @profile.avatar.attached?
+		= image_tag @profile.avatar
+	- else
+		%p No Profile Image
+
+	.profile-stats
+		.stat-item
+			%h2 100
+			%p posts
+		.stat-item
+			%h2 50
+			%p followers
+		.stat-item
+			%h2 75
+			%p following
+
+	.posts
+		%div
+			posts-timeline
+		-# - @profile.posts.order(created_at: :desc).each do |post|
+			- if post.image.attached?
+				= image_tag post.image
