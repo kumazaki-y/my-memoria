@@ -35,6 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // ファイルが選択されたらサーバにアップロード
     fileInput.addEventListener('change', (event) => {
+                // キャンセル操作が行われた場合
+        if (!event.target.files.length) {
+            console.log('No file selected. Cancelled.');
+            return; // 処理を中断
+        }
+        
         const formData = new FormData();
         formData.append('profile[avatar]', event.target.files[0]);
 
