@@ -2,9 +2,10 @@
 	%h1= @profile.user.username
 
 	- if @profile.avatar.attached?
-		= image_tag @profile.avatar
+		= image_tag @profile.avatar, class: 'profile-avatar'
 	- else
 		%p No Profile Image
+	%input#avatarInput{type: "file", name: "avatar"}
 
 	.profile-stats
 		.stat-item

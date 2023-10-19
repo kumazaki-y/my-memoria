@@ -1,21 +1,28 @@
 class ProfilesController < ApplicationController
 	before_action :authenticate_user!
+	before_action :set_profile
 
 	def show
-		@profile = current_user.profile
+	end
+
+	def edit
 	end
 
 	def update
-    @profile = current_user.profile
-    if @profile.update(profile_params)
-      redirect_to profile_path(@profile), notice: 'Profile was successfully updated.'
-    else
-      render :show
-    end
-  end
+		if @profile.update(profile_params)
+			image_url = rails_blob_url(@profile.avatar, disposition: "attachment")
+			render json: { status: 'success', image_url: image_url }
+		else
+			render json: { status: 'error', errors: @profile.errors.full_messages }, status: :unprocessable_entity
+		end
+	end
 
   private
   def profile_params
     params.require(:profile).permit(:username, :avatar)
+  end
+
+	def set_profile
+    @profile = current_user.profile
   end
 end
