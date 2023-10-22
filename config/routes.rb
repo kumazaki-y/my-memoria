@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :articles do
     resource :like, only: [:create, :destroy]
+    resources :comments, only: [:index, :show, :create, :destroy]
   end
   
   resource :profile, only: [:show, :edit, :update]

@@ -1,0 +1,12 @@
+#comments
+  - @comments.each do |comment|
+    .comment
+      %p
+        %strong= comment.user.username
+        = comment.content
+        %span= comment.created_at.strftime('%Y-%m-%d %H:%M:%S')
+
+#new_comment
+  = form_with model: [@article, @comment], local: true, html: { id: 'comment_form' } do |f|
+    = f.text_area :content, placeholder: "コメントを入力..."
+    = f.submit "コメントを投稿"
