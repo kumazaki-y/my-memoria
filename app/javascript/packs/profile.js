@@ -1,3 +1,4 @@
+import axios from 'axios';
 
 document.addEventListener('DOMContentLoaded', () => {
     const fileInput = document.getElementById('avatarInput');

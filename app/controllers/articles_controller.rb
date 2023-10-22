@@ -12,9 +12,10 @@ class ArticlesController < ApplicationController
     end
 
     def create
+        puts params
         @article = current_user.articles.build(article_params)
     
-        if @article.save
+        if @article.save!
             render json: { message: '記事を投稿しました', article: @article }, status: :created
         else
             render json: { message: '記事の投稿に失敗しました', errors: @article.errors }, status: :unprocessable_entity
