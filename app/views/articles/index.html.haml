@@ -1,0 +1,29 @@
+.container
+	.timeline-page
+		%ul.article-list
+			- @articles.each do |article|
+				%li.article-item
+					.user-info
+						= image_tag article.user.profile.avatar, class: 'user-image'
+						%span.user-name= article.user.username
+
+					%span.post-time
+						= time_ago_in_words(article.created_at) + ' ago'
+
+					.article-images
+						- if article.images.present?
+							= image_tag article.images.first, class: 'main-image' if article.images.first.present?
+							- article.images[1..2].each do |image|
+								= image_tag image, class: 'side-image' if image.present?
+
+					.article-actions
+						.like-icons
+							= image_tag('like.png', alt: 'いいね', class: 'like-button-inactive')
+							= image_tag('like_red.png', alt: 'いいね', class: 'like-button-active')
+						= link_to image_tag('Group.png', alt: 'コメント', class: 'comment-button'), "#"
+						= link_to image_tag('share.png', alt: 'シェア', class: 'share-button'), "#"
+
+
+
+					.article-text
+						= truncate(article.content, length: 80, omission: '...')

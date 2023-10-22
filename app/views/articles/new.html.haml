@@ -1,0 +1,22 @@
+.container
+  .article-new-header
+    %button.article-new-cancel Cancel
+    .article-new-status New Post
+    %button.article-new-post Post
+
+  .article-new-profile
+    - if @profile.avatar.attached?
+      = image_tag @profile.avatar, class: 'article-new-avatar'
+    - else
+      %img.article-new-avatar{ src: "default_avatar_path.jpg" } 
+    %span.article-new-username= @profile.user.username
+
+  .article-new-textarea
+    %textarea.article-new-input{ placeholder: "What's on your mind?" }
+
+  .article-new-upload
+    %label.article-new-label
+      + Album
+      %input.article-new-file-input{ type: "file", name: "article[images][]", multiple: true, accept: "image/*" }
+    .article-new-preview
+      -# ここに選択された画像がプレビューとして表示されます

@@ -1,0 +1,177 @@
+.container {
+    .article-new-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  
+      button {
+        padding: 10px 15px;
+        border: none;
+        cursor: pointer;
+  
+        &.article-new-cancel {
+          background-color: #f5f5f5;
+        }
+  
+        &.article-new-post {
+          background-color: #3498db;
+          color: white;
+        }
+      }
+  
+      .article-new-status {
+        font-size: 18px;
+      }
+    }
+  
+    .article-new-profile {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+  
+      .article-new-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+  
+      .article-new-username {
+        font-size: 16px;
+      }
+    }
+  
+    .article-new-textarea {
+      margin-top: 20px;
+  
+      .article-new-input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+    }
+  
+    .article-new-upload {
+      margin-top: 20px;
+      position: relative;
+  
+      .article-new-label {
+        cursor: pointer;
+      }
+  
+      .article-new-file-input {
+        display: none;
+      }
+  
+      .article-new-preview {
+        display: flex;
+        margin-top: 10px;
+        img {
+          width: 100px;
+          height: 100px;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+  .timeline-page {
+    .article-list {
+      list-style-type: none;
+      padding: 0;
+  
+      .article-item {
+        padding: 16px;
+        border-bottom: 1px solid #e1e1e1;
+  
+        .user-info {
+          display: flex;
+          align-items: center;
+          
+          .user-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 8px;
+          }
+  
+          .user-name {
+            font-weight: bold;
+          }
+        }
+  
+        .post-time {
+          color: #a1a1a1;
+          font-size: 12px;
+          margin-top: 8px;
+        }
+  
+        .article-images {
+          display: flex;
+  
+          .main-image {
+            width: 60%; // 例としての数値。調整が必要。
+            height: auto;
+            max-height: 300px; // 例としての数値。調整が必要。
+          }
+  
+          .side-image {
+            width: 20%; // 例としての数値。調整が必要。
+            height: auto;
+            max-height: 150px; // 例としての数値。調整が必要。
+          }
+        }
+  
+        .article-actions {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 12px;
+  
+          button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+  
+            &.like-button {
+              color: #e74c3c; // いいねのアイコンの色を設定
+            }
+  
+            &.comment-button, &.share-button {
+              color: #7f8c8d; // コメントとシェアのアイコンの色を設定
+            }
+          }
+        }
+  
+        .article-text {
+          margin-top: 12px;
+        }
+      }
+    }
+  }
+  
+
+  .like-icons {
+    position: relative;
+    width: 16px;
+    height: 16px;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .like-button-active,
+  .like-button-inactive {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .like-button-active {
+    display: none;
+  }
+}
