@@ -32,7 +32,11 @@
 							= image_tag('like.png', alt: 'いいね', class: 'like-button-inactive')
 							= image_tag('like_red.png', alt: 'いいね', class: 'like-button-active')
 						= link_to image_tag('comment.png', alt: 'コメント', class: 'comment-button'), "#"
-						= link_to image_tag('share.png', alt: 'シェア', class: 'share-button'), "#"
+						- if article && article.content
+							- x_share_url = "https://x.com/share?url=#{CGI.escape(article_url(article))}&text=#{CGI.escape(article.content)}"
+						= link_to image_tag('share.png', alt: 'シェア', class: 'share-button'), x_share_url, target: "_blank"
+
+
 
 					.article-text
 						= article.content
