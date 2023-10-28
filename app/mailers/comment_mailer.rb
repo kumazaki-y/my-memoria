@@ -1,9 +1,8 @@
-class CommentMailer < ApplicationMailer::Base
+class CommentMailer < ApplicationMailer
 
-    def mention_comment(user, comment_user)
+    def mention_comment(mentioned_user,user)
         @user = user
-        @comment_user = comment_user
-        mail to: user.email, subuject: '【お知らせ】あなた宛のコメントが投稿されました'
+        mail to: mentioned_user.email, subject: '【お知らせ】あなた宛のコメントが投稿されました'
     end
 
 end

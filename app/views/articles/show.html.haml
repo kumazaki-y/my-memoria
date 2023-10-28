@@ -4,7 +4,7 @@
   .new_comment{ data: { article_id: @article.id } }
     = form_with model: [@article, @comment], local: true, html: { id: 'comment_form' } do |f|
       = f.text_area :content, placeholder: "コメントを入力..."
-      = f.submit "コメントを投稿", class: 'button'
+      = f.submit "コメントを投稿", class: 'button', data: { disable_with: false }
 
 
   = button_tag "コメントする", type: "button", id: "show_comment_form_btn"
