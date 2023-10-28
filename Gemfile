@@ -32,6 +32,8 @@ gem 'devise'
 gem 'hamlit'
 gem 'aws-sdk-s3', require: false
 gem 'active_model_serializers'
+gem 'sidekiq'
+
 
 
 group :development, :test do
