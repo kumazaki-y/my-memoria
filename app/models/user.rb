@@ -7,7 +7,9 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
 
   has_one :profile, dependent: :destroy
-
+  has_many :articles
+  has_many :likes
+  has_many :comments
 
 
   after_create :create_profile #user登録した際にprofileが作られるように設定。

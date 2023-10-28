@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'hamlit'
 gem 'aws-sdk-s3', require: false
+gem 'active_model_serializers'
 
 
 group :development, :test do

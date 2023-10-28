@@ -1,0 +1,38 @@
+.container
+	.timeline-page
+		= link_to image_tag('photo-camera.png', alt: '投稿', class: 'post-button'), new_article_path
+		%ul.article-list
+			- @articles.each do |article|
+				%li.article-item
+					.user-info
+						= image_tag article.user.profile.avatar, class: 'user-image'
+						%span.user-name= article.user.username
+
+					%span.post-time
+						= time_ago_in_words(article.created_at) + ' ago'
+
+					.article-images
+						- if article.images.present?
+							- case article.images.count
+							- when 1
+								= image_tag article.images.first, class: 'single-image'
+							- when 2
+								= image_tag article.images.first, class: 'main-image'
+								= image_tag article.images.second, class: 'double-image'
+							- else
+								= image_tag article.images.first, class: 'main-image'
+								.side-images
+									- article.images[1..2].each do |image|
+										= image_tag image, class: 'side-image'
+
+					.article-actions
+						.like-icons{ data: { article_id: article.id } }
+							= image_tag('like.png', alt: 'いいね', class: 'like-button-inactive')
+							= image_tag('like_red.png', alt: 'いいね', class: 'like-button-active')
+						= link_to image_tag('comment.png', alt: 'コメント', class: 'comment-button'), article_path(article)
+						- if article && article.content
+							- x_share_url = "https://x.com/share?url=#{CGI.escape(article_url(article))}&text=#{CGI.escape(article.content)}"
+						= link_to image_tag('share.png', alt: 'シェア', class: 'share-button'), x_share_url, target: "_blank"
+
+					.article-text
+						= article.content
