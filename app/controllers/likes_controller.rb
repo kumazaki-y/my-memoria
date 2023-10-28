@@ -4,7 +4,6 @@ class LikesController < ApplicationController
     def create
       @like = @article.likes.build(user: current_user)
       if @like.save
-        # ... 何らかの成功時の処理 ...
         render json: { status: 'liked' }
       else
         render json: { error: 'Failed to like' }, status: :unprocessable_entity

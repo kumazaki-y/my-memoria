@@ -18,6 +18,7 @@ require("channels")
 
 import Rails from "@rails/ujs";
 import axios from 'axios';
+import $ from 'jquery';
 import { csrfToken } from '@rails/ujs';
 
 Rails.start();

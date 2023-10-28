@@ -6,6 +6,12 @@ class ArticlesController < ApplicationController
         @articles = Article.order(created_at: :desc) #記事を作成降順に取得
     end
 
+    def show
+        @article = Article.find(params[:id])
+        @comments = @article.comments.order(created_at: :desc)
+        @comment = @article.comments.new
+    end
+
 
     def new
         @article = Article.new

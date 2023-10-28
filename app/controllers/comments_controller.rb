@@ -2,21 +2,22 @@ class CommentsController < ApplicationController
     before_action :set_article
   
     def index
-        @article = Article.find(params[:article_id])
         @comments = @article.comments.order(created_at: :desc)
-        @comment = Comment.new
+        render json: @comments
     end
-    
+      
+
   
     def create
-      @comment = @article.comments.build(comment_params)
-      @comment.user = current_user
-      if @comment.save
-        render json: { comment: @comment, message: 'コメントを投稿しました' }, status: :created
-      else
-        render json: { errors: @comment.errors.full_messages }, status: :unprocessable_entity
-      end
+        @comment = @article.comments.build(comment_params)
+        @comment.user = current_user
+        if @comment.save
+          render json: @comment
+        else
+          render json: { errors: @comment.errors.full_messages }
+        end
     end
+      
   
     private
   
