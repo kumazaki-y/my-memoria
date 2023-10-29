@@ -5,7 +5,8 @@
 			- @articles.each do |article|
 				%li.article-item
 					.user-info
-						= image_tag article.user.profile.avatar, class: 'user-image'
+						= link_to profile_path(id: article.user.profile.id) do
+							= image_tag(article.user.profile.avatar.presence || 'default-avatar.png', class: 'user-image')
 						%span.user-name= article.user.username
 
 					%span.post-time

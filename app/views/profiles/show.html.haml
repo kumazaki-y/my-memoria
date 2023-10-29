@@ -1,26 +1,27 @@
 .container
-	%h1= @profile.user.username
+  %h1= @user.username
 
-	- if @profile.avatar.attached?
-		= image_tag @profile.avatar, class: 'profile-avatar'
-	- else
-		%p No Profile Image
-	%input#avatarInput{type: "file", name: "avatar"}
+  - if @user.profile.avatar.attached?
+    = image_tag @user.profile.avatar, class: 'profile-avatar'
+  - else
+    %p No Profile Image
 
-	.profile-stats
-		.stat-item
-			%h2 100
-			%p posts
-		.stat-item
-			%h2 50
-			%p followers
-		.stat-item
-			%h2 75
-			%p following
+  %input#avatarInput{ type: "file", name: "avatar" }
 
-	.posts
-		%div
-			posts-timeline
-		-# - @profile.posts.order(created_at: :desc).each do |post|
-			- if post.image.attached?
-				= image_tag post.image
+  .profile-stats
+    .stat-item
+      %h2 100
+      %p posts
+    .stat-item
+      %h2 50
+      %p followers
+    .stat-item
+      %h2 75
+      %p following
+
+-#   .posts
+-#     .posts-timeline
+-#       - @user.posts.order(created_at: :desc).each do |post|
+-#         - if post.image.attached?
+-#           = image_tag post.image
+
