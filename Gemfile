@@ -32,6 +32,10 @@ gem 'devise'
 gem 'hamlit'
 gem 'aws-sdk-s3', require: false
 gem 'active_model_serializers'
+gem 'sidekiq'
+gem 'letter_opener'
+gem 'letter_opener_web', '~>1.0'
+
 
 
 group :development, :test do
