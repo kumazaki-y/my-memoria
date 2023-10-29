@@ -2,7 +2,10 @@
   .profile-header
     %h1= @user.username
     - unless current_user == @user
-      %button.follow-btn Follow
+      - if current_user.followed?(@user)
+        = button_to 'Unfollow', account_unfollows_path(account_id: @user), method: :post, class: 'follow-btn'
+      - else
+        = button_to 'Follow', account_follows_path(account_id: @user), method: :post, class: 'follow-btn'
 
   - if @user.profile.avatar.attached?
     = image_tag @user.profile.avatar, class: 'profile-avatar'
@@ -27,4 +30,3 @@
 -#       - @user.posts.order(created_at: :desc).each do |post|
 -#         - if post.image.attached?
 -#           = image_tag post.image
-
