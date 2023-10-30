@@ -1,14 +1,53 @@
-.profile-stats {
+.container {
+  .profile-header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-  
-    .stat-item {
-      flex: 1;
-      text-align: center;
+
+    h1 {
+      font-size: 2em;
+    }
+
+    .follow-btn {
+      padding: 0.5em 1em;
+      font-size: 1em;
+      background-color: #1da1f2;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #0c85d0;
+      }
+
+    &.follow {
+      background-color: green;
+      color: white;
+    }
+    
+    &.unfollow {
+      background-color: red;
+      color: white;
+    }
+
+    
     }
   }
 
+  .profile-stats {
+      display: flex;
+      justify-content: space-between;
+    
+      .stat-item {
+        flex: 1;
+        text-align: center;
+      }
+    }
 
-#avatarInput{
-  display: none
+
+  #avatarInput{
+    display: none
+  }
 }

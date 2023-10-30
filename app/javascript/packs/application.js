@@ -29,6 +29,8 @@ import './article';
 import './profile'; 
 import './like'; 
 import './comment'; 
+import './relationship'; 
+
 
 
 

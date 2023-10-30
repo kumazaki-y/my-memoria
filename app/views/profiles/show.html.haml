@@ -1,5 +1,8 @@
 .container
-  %h1= @user.username
+  .profile-header
+    %h1= @user.username
+    - unless current_user == @user
+      %button.follow-btn Follow
 
   - if @user.profile.avatar.attached?
     = image_tag @user.profile.avatar, class: 'profile-avatar'

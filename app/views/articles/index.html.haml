@@ -5,9 +5,14 @@
 			- @articles.each do |article|
 				%li.article-item
 					.user-info
-						= link_to profile_path(id: article.user.profile.id) do
-							= image_tag(article.user.profile.avatar.presence || 'default-avatar.png', class: 'user-image')
-						%span.user-name= article.user.username
+						- if current_user == article.user
+							= link_to profile_path(id: article.user.id) do
+								= image_tag(article.user.profile.avatar.presence || 'default-avatar.png', class: 'user-image')
+							%span.user-name= article.user.username
+						- else
+							= link_to account_path(id: article.user.id) do
+								= image_tag(article.user.profile.avatar.presence || 'default-avatar.png', class: 'user-image')
+							%span.user-name= article.user.username
 
 					%span.post-time
 						= time_ago_in_words(article.created_at) + ' ago'

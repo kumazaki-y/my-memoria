@@ -1,0 +1,7 @@
+%h1 Followers
+%ul
+  - @followers&.each do |follower|
+    %li
+      = link_to account_path(id: follower.id) do
+        = image_tag(follower.profile.avatar.presence || 'default-avatar.png', class: 'user-image')
+      %span.user-name= follower.username
