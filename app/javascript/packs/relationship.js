@@ -11,15 +11,15 @@ document.addEventListener('DOMContentLoaded', () => {
         followButton.addEventListener('click', (event) => {
             event.preventDefault();
 
-            const isfollowed = followButton.dataset.relationshipStatus === 'unfollow';
-            const url = isfollowed ? `/accounts/${userId}/unfollows` : `/accounts/${userId}/follows`;
+            const isfollowing = followButton.dataset.relationshipStatus === 'unfollow';
+            const url = isfollowing ? `/accounts/${userId}/unfollows` : `/accounts/${userId}/follows`;
             const method = 'POST';
 
             axios({ method, url })
                 .then((response) => {
-                    if (response.data.status === 'followed' || response.data.status === 'unfollowed') {
-                        followButton.dataset.relationshipStatus = isfollowed ? 'follow' : 'unfollow';
-                        followButton.textContent = isfollowed ? 'Follow' : 'Unfollow';
+                    if (response.data.status === 'following' || response.data.status === 'unfollowing') {
+                        followButton.dataset.relationshipStatus = isfollowing ? 'follow' : 'unfollow';
+                        followButton.textContent = isfollowing ? 'Follow' : 'Unfollow';
                         followButton.classList.toggle('follow');
                         followButton.classList.toggle('unfollow');
 

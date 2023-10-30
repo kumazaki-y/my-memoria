@@ -50,7 +50,7 @@ Rails.application.configure do
   # when problems arise.
   config.log_level = :debug
 
-  # Prepend all log lines with the followed tags.
+  # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
 
   # Use a different cache store in production.

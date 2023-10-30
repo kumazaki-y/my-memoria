@@ -8,6 +8,7 @@
 						- if current_user == article.user
 							= link_to profile_path(id: article.user.id) do
 								= image_tag(article.user.profile.avatar.presence || 'default-avatar.png', class: 'user-image')
+							%span.user-name= article.user.username
 						- else
 							= link_to account_path(id: article.user.id) do
 								= image_tag(article.user.profile.avatar.presence || 'default-avatar.png', class: 'user-image')

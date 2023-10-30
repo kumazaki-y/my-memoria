@@ -4,7 +4,7 @@ class UnfollowsController < ApplicationController
     def create
       @user = User.find(params[:account_id])
       current_user.unfollow!(@user)
-      render json: { status: 'unfollowed', followerCount: @user.follower.count }
+      render json: { status: 'unfollowing', followerCount: @user.follower.count }
     end
 
   end
