@@ -2,10 +2,8 @@
   .profile-header
     %h1= @user.username
     - unless current_user == @user
-      - if current_user.followed?(@user)
-        = button_to 'Unfollow', account_unfollows_path(account_id: @user), method: :post, class: 'follow-btn'
-      - else
-        = button_to 'Follow', account_follows_path(account_id: @user), method: :post, class: 'follow-btn'
+      %button.follow-btn{ data: { user_id: @user.id, relationship_status: current_user.followed?(@user) ? 'unfollow' : 'follow' } }
+        = current_user.followed?(@user) ? 'Unfollow' : 'Follow'
 
   - if @user.profile.avatar.attached?
     = image_tag @user.profile.avatar, class: 'profile-avatar'
@@ -16,14 +14,15 @@
 
   .profile-stats
     .stat-item
-      %h2 100
-      %p posts
+      %h2= 100
+      %p Posts
     .stat-item
-      %h2 50
-      %p followers
+      %h2#follower-count= link_to @user.follower.count, account_followers_path(@user)
+      %p Followers
     .stat-item
-      %h2 75
-      %p following
+      %h2= link_to @user.followed.count, account_followed_index_path(@user)
+      %p followed
+
 
 -#   .posts
 -#     .posts-timeline

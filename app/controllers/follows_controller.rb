@@ -1,16 +1,11 @@
 class FollowsController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_user
   
     def create
+      @user = User.find(params[:account_id])
       current_user.follow!(@user)
-      redirect_to account_path(@user)
+      render json: { status: 'followed', followerCount: @user.follower.count}
     end
 
-    private
-  
-    def set_user
-      @user = User.find(params[:account_id])
-    end
   end
   

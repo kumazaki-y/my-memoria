@@ -21,6 +21,18 @@
       &:hover {
         background-color: #0c85d0;
       }
+
+    &.follow {
+      background-color: green;
+      color: white;
+    }
+    
+    &.unfollow {
+      background-color: red;
+      color: white;
+    }
+
+    
     }
   }
 

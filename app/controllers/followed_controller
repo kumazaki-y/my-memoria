@@ -1,0 +1,13 @@
+class FollowedController < ApplicationController
+  before_action :set_account
+
+  def index
+    @followed = @account.followed
+  end
+
+  private
+
+  def set_account
+    @account = Account.find(params[:account_id])
+  end
+end
