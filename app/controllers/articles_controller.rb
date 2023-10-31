@@ -3,7 +3,10 @@ class ArticlesController < ApplicationController
 	before_action :set_profile
 
     def index
-        @articles = Article.order(created_at: :desc) #記事を作成降順に取得
+        following_articles = Article.where(user_id: current_user.following.pluck(:id)).order(created_at: :desc)
+        popular_articles = Article.in_last_24_hours.popular.limit(5)
+    
+        @articles = (following_articles + popular_articles).uniq.sort_by { |article| article[:created_at] }.reverse
     end
 
     def show
