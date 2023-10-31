@@ -6,6 +6,13 @@ class Article < ApplicationRecord
 
   validate :validate_images_count
 
+  scope :in_last_24_hours, -> { where('articles.created_at > ?', 24.hours.ago) }
+  scope :popular, -> { 
+    joins(:likes)
+    .select('articles.*, COUNT(likes.id) AS likes_count')
+    .group('articles.id')
+    .order('likes_count DESC')
+  }
 
   private
 

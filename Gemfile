@@ -35,6 +35,7 @@ gem 'active_model_serializers'
 gem 'sidekiq'
 gem 'letter_opener'
 gem 'letter_opener_web', '~>1.0'
+gem 'faker'
 
 
 

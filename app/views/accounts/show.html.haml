@@ -14,7 +14,7 @@
 
   .profile-stats
     .stat-item
-      %h2= 100
+      %h2= @user.articles.count
       %p Posts
     .stat-item
       = link_to account_followers_path(@user), class: 'follower-link' do
@@ -27,8 +27,10 @@
 
 
 
--#   .posts
--#     .posts-timeline
--#       - @user.posts.order(created_at: :desc).each do |post|
--#         - if post.image.attached?
--#           = image_tag post.image
+  .posts-timeline
+    - @user.articles.order(created_at: :desc).each do |article|
+      - if article.image && article.image.attached?
+        = image_tag article.image
+      - else
+        = image_tag 'default-image.png', alt: 'デフォルト画像'
+

@@ -20,6 +20,10 @@ class User < ApplicationRecord
   after_create :create_profile #user登録した際にprofileが作られるように設定。
 
 
+  def has_liked?(article)
+    likes.exists?(article_id: article.id)
+  end
+
   def following?(user)
     following_relationships.exists?(following_id: user.id)
   end

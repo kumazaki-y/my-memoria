@@ -3,9 +3,16 @@ class ArticlesController < ApplicationController
 	before_action :set_profile
 
     def index
-        @articles = Article.order(created_at: :desc) #記事を作成降順に取得
+        # フォローしているユーザーと自分自身の投稿を取得
+        following_and_own_articles = Article.where(user_id: current_user.following.pluck(:id) << current_user.id).order(created_at: :desc)
+        
+        # 24時間以内に作成され、いいねが多い投稿を5件取得
+        popular_articles = Article.in_last_24_hours.popular.limit(5)
+    
+        # 両方の記事リストを結合し、重複を削除して新しい順にソート
+        @articles = (following_and_own_articles + popular_articles).uniq.sort_by { |article| article[:created_at] }.reverse
     end
-
+    
     def show
         @article = Article.find(params[:id])
         @comments = @article.comments.order(created_at: :desc)

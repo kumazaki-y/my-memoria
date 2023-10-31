@@ -6,17 +6,28 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-5.times do |i|
-    user = User.create!(
-      email: "dummy#{i + 1}@example.com",
-      username: "dummy_user#{i + 1}",
-      password: "password", # パスワードを設定
-      password_confirmation: "password", # パスワード確認を設定
+# db/seeds.rb
+
+# 10人のユーザーを作成
+10.times do |n|
+  User.create!(
+    email: Faker::Internet.email,
+    password: 'password',
+    username: Faker::Name.name
+  )
+end
+
+User.all.each do |user|
+  10.times do
+    article = user.articles.create!(
+      content: Faker::Lorem.sentence
     )
-  
-    Article.create!(
-      content: "This is a dummy article created by user#{i + 1}.",
-      user: user
-    )
+    # ランダムな数のいいねを作成
+    rand(1..10).times do
+      user = User.offset(rand(User.count)).first
+      unless article.likes.exists?(user_id: user.id)
+        Like.create!(user: user, article: article)
+      end
+    end
   end
-  
+end
