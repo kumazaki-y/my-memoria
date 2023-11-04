@@ -22,9 +22,10 @@
       %h2 75
       %p following
 
--#   .posts
--#     .posts-timeline
--#       - @user.posts.order(created_at: :desc).each do |post|
--#         - if post.image.attached?
--#           = image_tag post.image
+  .posts-timeline
+    - @user.articles.order(created_at: :desc).each do |article|
+      - if article.images.attached?
+        = image_tag article.images.first, class: 'article-image'
+      - else
+        = image_tag 'default-image.png', class: 'default-article-image', alt: 'デフォルト画像'
 

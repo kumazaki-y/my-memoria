@@ -25,12 +25,10 @@
         %div= @user.following.count
         %p following
 
-
-
   .posts-timeline
     - @user.articles.order(created_at: :desc).each do |article|
-      - if article.image && article.image.attached?
-        = image_tag article.image
+      - if article.images.attached?
+        = image_tag article.images.first, class: 'article-image'
       - else
-        = image_tag 'default-image.png', alt: 'デフォルト画像'
+        = image_tag 'default-image.png', class: 'default-article-image', alt: 'デフォルト画像'
 
