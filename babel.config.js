@@ -1,9 +1,9 @@
 module.exports = function(api) {
-  var validEnv = ['development', 'test', 'production'];
-  var currentEnv = api.env();
-  var isDevelopmentEnv = api.env('development');
-  var isProductionEnv = api.env('production');
-  var isTestEnv = api.env('test');
+  var validEnv = ['development', 'test', 'production']
+  var currentEnv = api.env()
+  var isDevelopmentEnv = api.env('development')
+  var isProductionEnv = api.env('production')
+  var isTestEnv = api.env('test')
 
   if (!validEnv.includes(currentEnv)) {
     throw new Error(
@@ -12,7 +12,7 @@ module.exports = function(api) {
         '"test", and "production". Instead, received: ' +
         JSON.stringify(currentEnv) +
         '.'
-    );
+    )
   }
 
   return {
@@ -21,10 +21,9 @@ module.exports = function(api) {
         '@babel/preset-env',
         {
           targets: {
-            node: 'current',
-          },
-          loose: true, // ここにlooseオプションを追加
-        },
+            node: 'current'
+          }
+        }
       ],
       (isProductionEnv || isDevelopmentEnv) && [
         '@babel/preset-env',
@@ -33,10 +32,9 @@ module.exports = function(api) {
           useBuiltIns: 'entry',
           corejs: 3,
           modules: false,
-          exclude: ['transform-typeof-symbol'],
-          loose: true, // ここにlooseオプションを追加
-        },
-      ],
+          exclude: ['transform-typeof-symbol']
+        }
+      ]
     ].filter(Boolean),
     plugins: [
       'babel-plugin-macros',
@@ -46,30 +44,39 @@ module.exports = function(api) {
       [
         '@babel/plugin-proposal-class-properties',
         {
-          loose: true, // ここではすでにlooseがtrueに設定されています
-        },
+          loose: true
+        }
       ],
       [
         '@babel/plugin-proposal-object-rest-spread',
         {
-          useBuiltIns: true,
-          loose: true, // ここにlooseオプションを追加
-        },
+          useBuiltIns: true
+        }
+      ],
+      [
+        '@babel/plugin-proposal-private-methods',
+        {
+          loose: true
+        }
+      ],
+      [
+        '@babel/plugin-proposal-private-property-in-object',
+        {
+          loose: true
+        }
       ],
       [
         '@babel/plugin-transform-runtime',
         {
-          helpers: false,
-          regenerator: true,
-          corejs: false,
-        },
+          helpers: false
+        }
       ],
       [
         '@babel/plugin-transform-regenerator',
         {
-          async: false,
-        },
-      ],
-    ].filter(Boolean),
-  };
-};
+          async: false
+        }
+      ]
+    ].filter(Boolean)
+  }
+}
