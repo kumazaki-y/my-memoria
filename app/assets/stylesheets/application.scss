@@ -1,9 +1,7 @@
 @import "profile";
 @import "article";
 @import "comment";
-
-
-
+@import "device";
 
 .container {
     width: 375px;
@@ -21,4 +19,14 @@
     max-width: 100%;
     height: auto;
   }
-  
+
+  .home-indicator {
+    position: fixed;    /* フィックスポジションを指定 */
+    left: 50%;          /* 親要素を基準に左から50%の位置に設定 */
+    bottom: 10px;       /* 下端から10pxの位置に設定 */
+    width: 100px;       /* インジケーターの幅を100pxに設定 */
+    height: 5px;        /* インジケーターの高さ */
+    background: #000;   /* インジケーターの背景色 */
+    z-index: 1000;      /* 他の要素の上に表示するためのz-index */
+    transform: translateX(-50%); /* X軸に対して-50%移動させ、中央に配置 */
+}
