@@ -1,53 +1,66 @@
-.container {
-  .profile-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
 
-    h1 {
-      font-size: 2em;
+  h1 {
+    font-size: 2em;
+  }
+
+  .follow-btn {
+    padding: 0.5em 1em;
+    font-size: 1em;
+    background-color: #1da1f2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #0c85d0;
     }
-
-    .follow-btn {
-      padding: 0.5em 1em;
-      font-size: 1em;
-      background-color: #1da1f2;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-
-      &:hover {
-        background-color: #0c85d0;
-      }
 
     &.follow {
       background-color: green;
       color: white;
     }
-    
+
     &.unfollow {
       background-color: red;
       color: white;
     }
-
-    
-    }
   }
+}
 
-  .profile-stats {
-      display: flex;
-      justify-content: space-between;
-    
-      .stat-item {
-        flex: 1;
-        text-align: center;
-      }
-    }
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #0037b6; // 枠線の色と太さを設定
 
+  // 画像を綺麗に表示するための設定
+  object-fit: cover; // 画像の比率を保ちつつ、要素のボックスに合わせて表示
+  display: block; // ブロックレベル要素として表示
+  margin: 0 auto;
+}
 
-  #avatarInput{
-    display: none
+#avatarInput{
+  display: none
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-top: 50px;
+
+  .stat-item {
+    flex: 1;//均等にスペースをとる。
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    text-align: center;
   }
 }

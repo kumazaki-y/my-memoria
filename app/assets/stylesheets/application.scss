@@ -30,3 +30,43 @@
     z-index: 1000;      /* 他の要素の上に表示するためのz-index */
     transform: translateX(-50%); /* X軸に対して-50%移動させ、中央に配置 */
 }
+
+a {
+  color: inherit;      /* 親要素の色を継承 */
+  text-decoration: none;
+}
+
+.notice, .alert {
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+  opacity: 1;
+  animation: fadeout 1s ease-in-out 2s forwards;
+  text-align: center;
+  max-width: 70%;
+  position: fixed;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+
+  &.notice {
+    background-color: #000cb6;
+    color: #ffffff;
+    border: 1px solid #000cb6;
+  }
+
+  &.alert {
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+  }
+}
+
+@keyframes fadeout {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

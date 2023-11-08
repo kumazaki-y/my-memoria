@@ -1,7 +1,7 @@
 = form_with(model: @article, local: true) do |f|
   .container
     .article-new-header
-      = link_to 'Cancel', root_path, class: 'article-new-cancel btn btn-default'
+      = link_to 'Back', :back, class: 'btn btn-default'
       .article-new-status New Post
       = f.submit 'Post', class: 'article-new-post'
 
