@@ -18,7 +18,12 @@ class CommentsController < ApplicationController
         end
     end
       
-  
+    def destroy
+      @comment = @article.comments.find_by(id: params[:id])
+      @comment.destroy if @comment.user == current_user
+      redirect_to article_path(@article), notice: 'コメントが削除されました。'
+  end
+
     private
   
     def set_article

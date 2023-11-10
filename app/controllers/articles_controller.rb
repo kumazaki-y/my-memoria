@@ -34,6 +34,16 @@ class ArticlesController < ApplicationController
         end
     end
     
+    def destroy
+        @article = Article.find(params[:id])
+        if @article.user == current_user
+            @article.likes.destroy_all # 記事に関連するいいねをすべて削除
+            @article.destroy!
+            redirect_to articles_url, notice: '記事が削除されました。'
+        else
+            redirect_to articles_path, alert: 'この記事を削除する権限がありません。'
+        end
+    end
 
     private
 

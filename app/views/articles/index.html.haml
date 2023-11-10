@@ -8,7 +8,10 @@
 						- if current_user == article.user
 							= link_to profile_path(id: article.user.id) do
 								= image_tag(article.user.profile.avatar.presence || 'default-avatar.png', class: 'user-image')
-							%span.user-name= article.user.username
+							%span.user-name
+								= article.user.username
+								= link_to '削除', article_path(article), method: :delete, data: { confirm: '記事を削除してよろしいですか？' }, class: 'delete-article-button'
+
 						- else
 							= link_to account_path(id: article.user.id) do
 								= image_tag(article.user.profile.avatar.presence || 'default-avatar.png', class: 'user-image')
