@@ -6,6 +6,11 @@ class Comment < ApplicationRecord
 
   after_create :send_email
 
+    # 現在のユーザーがこのコメントの投稿者かどうかを返す
+    def is_current_user(current_user)
+      self.user_id == current_user.id
+    end
+
   private
   def send_email
     mentions = content.scan(/@([a-zA-Z0-9_]+)/)

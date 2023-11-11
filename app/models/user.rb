@@ -21,6 +21,14 @@ class User < ApplicationRecord
 
   after_create :create_profile #user登録した際にprofileが作られるように設定。
 
+  def profile_image_url
+    if profile&.avatar&.attached?
+      Rails.application.routes.url_helpers.rails_blob_path(profile.avatar, only_path: true)
+    else
+      # デフォルト画像URLまたはnilを返す
+    end
+  end
+  
 
   def has_liked?(article)
     likes.exists?(article_id: article.id)

@@ -1,147 +1,161 @@
-.container {
-    .article-new-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-  
-      button {
-        padding: 10px 15px;
-        border: none;
-        cursor: pointer;
-  
-        &.article-new-cancel {
-          background-color: #f5f5f5;
-        }
-  
-        &.article-new-post {
-          background-color: #3498db;
-          color: white;
-        }
-      }
-  
-      .article-new-status {
-        font-size: 18px;
-      }
+
+.article-new-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  button {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+
+    &.article-new-cancel {
+      background-color: #f5f5f5;
     }
-  
-    .article-new-profile {
+
+    &.article-new-post {
+      background-color: #3498db;
+      color: white;
+    }
+  }
+
+  .article-new-status {
+    font-size: 18px;
+  }
+}
+
+.article-new-profile {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+
+  .article-new-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .article-new-username {
+    font-size: 16px;
+  }
+}
+
+.article-new-textarea {
+  margin-top: 20px;
+
+  .article-new-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+}
+
+  .article-new-upload {
+    margin-top: 20px;
+    position: relative;
+
+    .article-new-label {
+      cursor: pointer;
+    }
+
+    .article-new-file-input {
+      display: none;
+    }
+
+    .article-new-preview {
       display: flex;
-      align-items: center;
-      margin-top: 20px;
-  
-      .article-new-avatar {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
+      margin-top: 10px;
+      img {
+        width: 100px;
+        height: 100px;
         margin-right: 10px;
       }
-  
-      .article-new-username {
-        font-size: 16px;
-      }
     }
-  
-    .article-new-textarea {
-      margin-top: 20px;
-  
-      .article-new-input {
-        width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-      }
+  }
+
+
+.timeline-page {
+  .post-button {
+    position: fixed; // 画面に対して固定
+    top: 5px;
+    z-index: 1000;   // 他の要素より上に表示
+
+    @media (max-width: 100px) { // スマートフォン用
+      left: 40px; // 左から10pxの位置
     }
-  
-    .article-new-upload {
-      margin-top: 20px;
-      position: relative;
-  
-      .article-new-label {
-        cursor: pointer;
-      }
-  
-      .article-new-file-input {
-        display: none;
-      }
-  
-      .article-new-preview {
+
+    @media (min-width: 601px) { // デスクトップ用
+      left: calc(50% - 172px); // ビューポートの中央から左に移動
+    }
+  }
+
+  .article-list {
+    list-style-type: none;
+    padding: 0;
+
+    .article-item {
+      padding: 16px;
+      border-bottom: 1px solid #e1e1e1;
+
+      .user-info {
         display: flex;
-        margin-top: 10px;
-        img {
-          width: 100px;
-          height: 100px;
-          margin-right: 10px;
-        }
-      }
-    }
-  }
-
-  .timeline-page {
-    .article-list {
-      list-style-type: none;
-      padding: 0;
-  
-      .article-item {
-        padding: 16px;
-        border-bottom: 1px solid #e1e1e1;
-  
-        .user-info {
-          display: flex;
-          align-items: center;
-          
-          .user-image {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-right: 8px;
-          }
-  
-          .user-name {
-            font-weight: bold;
-          }
-        }
-  
-        .post-time {
-          color: #a1a1a1;
-          font-size: 12px;
-          margin-top: 8px;
-        }
-
-
+        align-items: center;
         
-        .article-actions {
-          display: flex;
-          justify-content: space-between;
-          margin-top: 12px;
-  
-          button {
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-  
-            &.like-button {
-              color: #e74c3c; // いいねのアイコンの色を設定
-            }
-  
-            &.comment-button, &.share-button {
-              color: #7f8c8d; // コメントとシェアのアイコンの色を設定
-            }
+        .user-image {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          margin-right: 8px;
+        }
+
+        .user-name {
+          font-weight: bold;
+        }
+      }
+
+      .post-time {
+        color: #a1a1a1;
+        font-size: 12px;
+        margin-top: 8px;
+      }
+
+
+      
+      .article-actions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 12px;
+
+        button {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+
+          &.like-button {
+            color: #e74c3c; // いいねのアイコンの色を設定
+          }
+
+          &.comment-button, &.share-button {
+            color: #7f8c8d; // コメントとシェアのアイコンの色を設定
           }
         }
-  
-        .article-text {
-          margin-top: 12px;
-        }
+      }
+
+      .article-text {
+        margin-top: 12px;
       }
     }
   }
-  
+}
 
-  .like-icons {
-    position: relative;
-    width: 16px;
-    height: 16px;
+
+.like-icons {
+  position: relative;
+  width: 16px;
+  height: 16px;
 
   img {
     max-width: 100%;
@@ -161,14 +175,6 @@
     display: none;
   }
 }
-
-.post-button {
-  position: fixed;
-  top: 15px;
-  left: 30px;
-  z-index: 1000;
-}
-
 
 .article-image-container {
   display: flex;
