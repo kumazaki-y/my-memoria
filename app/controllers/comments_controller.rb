@@ -2,19 +2,25 @@ class CommentsController < ApplicationController
     before_action :set_article
 
     def index
+      @comment = @article.comments.new
       @comments = @article.comments.order(created_at: :desc)
-      comments_json = @comments.as_json(include: {
-        user: {
-          only: [:username, :id], # 必要なユーザー情報を指定
-          methods: :profile_image_url # プロフィール画像のURLを返すメソッド
-        }
-      })
+      respond_to do |format|
+        format.html # HTMLページとしてコメント一覧を表示
+        format.json do # JSONレスポンスとしてコメントデータを返す
+          comments_json = @comments.as_json(include: {
+            user: {
+              only: [:username, :id], # 必要なユーザー情報を指定
+              methods: :profile_image_url # プロフィール画像のURLを返すメソッド
+            }
+          })
     
-      comments_json.each do |comment|
-        comment["is_current_user"] = (comment["user"]["id"] == current_user.id)
+          comments_json.each do |comment|
+            comment["is_current_user"] = (comment["user"]["id"] == current_user.id)
+          end
+    
+          render json: comments_json
+        end
       end
-    
-      render json: comments_json
     end
     
 

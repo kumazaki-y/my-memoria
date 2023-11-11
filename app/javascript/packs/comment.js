@@ -7,13 +7,16 @@ if ($('.new_comment').length > 0) {
 		const commentForm = $('.new_comment');
 		const showCommentFormBtn = $('#show_comment_form_btn');
 		const dataset = commentForm.data();
-		console.log(dataset); // ここに追加
 		const articleId = dataset.articleId;
-		console.log(dataset); // ここに追加
 
 		// ページ読み込み時にコメントを非同期で取得
-		axios.get(`/articles/${articleId}/comments`)
+		axios.get(`/articles/${articleId}/comments`, {
+			headers: {
+				'Accept': 'application/json'
+			}
+		})
 		.then(function(response) {
+			console.log(response.data); 
 				const comments = response.data;
 				comments.forEach(comment => {
 						$('.comments').append(`
