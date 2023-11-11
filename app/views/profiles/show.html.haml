@@ -1,15 +1,15 @@
 .container
-  = link_to 'Back', :back, class: 'btn btn-default'
   .profile-header
-    %p= @user.username
+    = link_to 'Back', :back, class: 'btn btn-default'
     - unless current_user == @user
       %button.follow-btn{ data: { user_id: @user.id, relationship_status: current_user.following?(@user) ? 'unfollow' : 'follow' } }
         = current_user.following?(@user) ? 'Unfollow' : 'Follow'
-
+  .profile-info
+    %p= @user.username
   - if @user.profile.avatar.attached?
     = image_tag @user.profile.avatar, class: 'profile-avatar'
   - else
-    %p No Profile Image
+    = image_tag 'default-avatar.png', class: 'profile-avatar', alt: 'デフォルトのプロフィール画像'
 
   %input#avatarInput{ type: "file", name: "avatar" }
 
@@ -42,6 +42,5 @@
           .side-images
             - article.images[1..2].each do |image|
               = image_tag image, class: 'side-image article-image'
-
 
 

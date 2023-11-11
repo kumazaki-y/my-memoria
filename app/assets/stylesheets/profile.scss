@@ -1,12 +1,9 @@
 .profile-header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 30px;
-
-  h1 {
-    font-size: 2em;
-  }
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 10px;
 
   .follow-btn {
     padding: 0.5em 1em;
@@ -33,6 +30,19 @@
     }
   }
 }
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+
+  h1 {
+    font-size: 2em;
+  }
+}
+
+
 
 .profile-avatar {
   width: 100px;
