@@ -22,6 +22,11 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
+  if ENV["REDIS_URL"]
+    config.cache_store = :redis_cache_store, { url: ENV["REDIS_URL"] }
+    config.session_store :cache_store, key: "_#{Rails.application.class.parent_name.downcase}_session", expire_after: 90.minutes, httponly: true
+  end  
+
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
 
