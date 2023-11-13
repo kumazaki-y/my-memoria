@@ -1,10 +1,14 @@
-= form_with(model: @article, local: true) do |f|
-  .container
-    .article-new-header
-      = link_to 'Back', :back, class: 'btn btn-default'
-      .article-new-status New Post
-      = f.submit 'Post', class: 'article-new-post'
+.container
+  = form_with(model: @article, local: true) do |f|
+    - if @article.errors.any?
+      - @article.errors.full_messages.each do |message|
+        %p= message
 
+    .article-new-header
+      = link_to 'Back', :back, class: 'btn article-new-cancel'
+      .article-new-status New Post
+      = f.submit 'Post', class: ' btn article-new-post'
+    
     .article-new-profile
       - if @profile.avatar.attached?
         = image_tag @profile.avatar, class: 'article-new-avatar'
@@ -16,6 +20,6 @@
       = f.text_area :content, class: 'article-new-input', placeholder: "What's on your mind?"
 
     .article-new-upload
-      = f.label :images, 'Album', class: 'article-new-label'
+      = f.label :images, ' + Album', class: 'article-new-label'
       = f.file_field :images, multiple: true, accept: "image/*", class: 'article-new-file-input'
       .article-new-preview

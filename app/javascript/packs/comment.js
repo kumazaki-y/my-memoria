@@ -8,6 +8,7 @@ if ($('.new_comment').length > 0) {
 		const showCommentFormBtn = $('#show_comment_form_btn');
 		const dataset = commentForm.data();
 		const articleId = dataset.articleId;
+		const currentUserId = "#{current_user.id}";
 
 		// ページ読み込み時にコメントを非同期で取得
 		axios.get(`/articles/${articleId}/comments`, {
@@ -19,17 +20,22 @@ if ($('.new_comment').length > 0) {
 			console.log(response.data); 
 				const comments = response.data;
 				comments.forEach(comment => {
+					const profileLink = comment.user.id === currentUserId ? '/profile' : '/accounts/' + comment.user.id;
 						$('.comments').append(`
-								<div class="comment" id="comment-${comment.id}">
-										<div class="comment-header">
-												<img src="${comment.user.profile_image_url}" alt="${comment.user.username}" class="profile-img">
-										</div>
-										<div class="comment-content">
-												<strong>${comment.user.username}</strong>
-												<p>${comment.content}</p>
-												${comment.is_current_user ? `<button class="delete-comment" data-comment-id="${comment.id}">削除</button>` : ''}
-										</div>
-								</div>
+					<div class="comment" id="comment-${comment.id}">
+						<div class="comment-header">
+							<a href="${profileLink}">
+								<img src="${comment.user.profile_image_url}" alt="${comment.user.username}" class="profile-img">
+							</a>
+						</div>
+						<div class="comment-content">
+							<div class="user-and-action">
+								<strong>${comment.user.username}</strong>
+								${comment.is_current_user ? `<button class="delete-comment" data-comment-id="${comment.id}">削除</button>` : ''}
+							</div>
+							<p>${comment.content}</p>
+						</div>
+					</div>
 						`);
 				});
 		})
@@ -57,17 +63,22 @@ if ($('.new_comment').length > 0) {
 			})
 			.then(function(response) {
 					const comment = response.data;
+					const profileLink = comment.user.id === currentUserId ? '/profile' : '/accounts/' + comment.user.id;
 					$('.comments').prepend(`
-							<div class="comment" id="comment-${comment.id}">
-									<div class="comment-header">
-											<img src="${comment.user.profile_image_url}" alt="${comment.user.username}" class="profile-img">
-									</div>
-									<div class="comment-content">
-											<strong>${comment.user.username}</strong>
-											<p>${comment.content}</p>
-											${comment.is_current_user ? `<button class="delete-comment" data-comment-id="${comment.id}">削除</button>` : ''}
-									</div>
+					<div class="comment" id="comment-${comment.id}">
+						<div class="comment-header">
+							<a href="${profileLink}">
+								<img src="${comment.user.profile_image_url}" alt="${comment.user.username}" class="profile-img">
+							</a>
+						</div>
+						<div class="comment-content">
+							<div class="user-and-action">
+								<strong>${comment.user.username}</strong>
+								${comment.is_current_user ? `<button class="delete-comment" data-comment-id="${comment.id}">削除</button>` : ''}
 							</div>
+							<p>${comment.content}</p>
+						</div>
+					</div>
 					`);
 					$('textarea[name="comment[content]"]').val(''); // 入力欄をクリア
 					commentForm.css('display', 'none'); // フォームを隠す

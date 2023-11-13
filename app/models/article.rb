@@ -17,8 +17,10 @@ class Article < ApplicationRecord
   private
 
   def validate_images_count
-    if images.count > 4
-      errors.add(:images, "一度に送信できる画像は４枚までです")
+    if images.count == 0
+      errors.add(:base, "少なくとも1枚の画像が必要です")
+    elsif images.count > 3
+      errors.add(:base, "一度に送信できる画像は3枚までです")
     end
   end
 end

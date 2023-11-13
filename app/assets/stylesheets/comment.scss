@@ -1,40 +1,58 @@
 .comments {
-    .comment {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-        padding: 10px;
-        border: 1px solid #e1e1e1;
-        border-radius: 5px;
+	.comment {
+		display: flex;
+		align-items: center;
+		margin-bottom: 20px;
+		padding: 10px;
+		border: 1px solid #e1e1e1;
+		border-radius: 5px;
 
-        .comment-header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-right: 15px;
+		.comment-header {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-right: 15px;
+			flex-shrink: 0;
 
-            .profile-img {
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                object-fit: cover;
-            }
+			.profile-img {
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				object-fit: cover;
+			}
 
-            strong {
-                margin-top: 5px;
-                font-size: 16px;
-                color: #333;
-            }
-        }
+			strong {
+				margin-top: 5px;
+				font-size: 16px;
+				color: #333;
+			}
+		}
 
-        p {
-            flex: 1;
-            font-size: 14px;
-            color: #666;
-        }
-    }
+		p {
+				flex: 1;
+				font-size: 14px;
+				color: #666;
+		}
+
+		.comment-content {
+			width: 270px;
+			.user-and-action {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				width: 100%;
+
+				strong {
+					margin-top: 0; // 既存のマージントップをリセット
+				}
+
+				.delete-comment {
+					// 削除ボタンのスタイルをここに追加
+				}
+			}
+		}
+	}
 }
-
 .new_comment {
     margin-top: 20px;
     border-top: 1px solid #e1e1e1;
@@ -66,4 +84,3 @@
     }
 }
 
-    
