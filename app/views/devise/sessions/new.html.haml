@@ -1,14 +1,16 @@
-.container 
+.container
   = image_tag("Rectangle.png", alt: "ログイン画像", class: "image")
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .field
-      = f.label :Email
-      %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email"
-    .field
-      = f.label :Password
-      %br/
-      = f.password_field :password, autocomplete: "current-password"
-    = link_to "Forgot your password?", new_password_path(resource_name)
-    .actions
-      = f.submit "LOGIN"
+  .form
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field
+        = f.label :Email,class: "f-label"
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email",class: "form"
+      .field
+        = f.label :Password,class: "f-label"
+        %br/
+        = f.password_field :password, autocomplete: "current-password",class: "form"
+      .field
+        = link_to "Forgot your password?", new_password_path(resource_name) ,class: "btn btn-link"
+      .submit
+        = f.submit "LOGIN",class: "btn btn-primary"

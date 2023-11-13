@@ -1,7 +1,12 @@
-%h1 Followers
-%ul
-  - @followers&.each do |follower|
-    %li
-      = link_to account_path(id: follower.id) do
-        = image_tag(follower.profile.avatar.presence || 'default-avatar.png', class: 'user-image')
-      %span.user-name= follower.username
+.container
+  .user-list-container
+    %h1 Follower
+    = link_to 'Back', :back, class: 'btn btn-back'
+    %ul.user-list
+      - @followers&.each do |user|
+        %li.user-item
+          = link_to account_path(id: user.id), class: 'user-link' do
+            = image_tag(user.profile.avatar.presence || 'default-avatar.png', class: 'user-avatar')
+            .user-info
+              %span.user-name= user.username
+              %span.user-last-login= time_ago_in_words(user.last_sign_in_at) + ' ago'

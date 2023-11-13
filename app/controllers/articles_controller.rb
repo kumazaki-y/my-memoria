@@ -25,13 +25,24 @@ class ArticlesController < ApplicationController
     end
 
     def create
-        puts params
         @article = current_user.articles.build(article_params)
     
-        if @article.save!
-            render json: { message: '記事を投稿しました', article: @article }, status: :created
+        if @article.save
+            redirect_to root_path, notice: '記事を投稿しました。'
         else
-            render json: { message: '記事の投稿に失敗しました', errors: @article.errors }, status: :unprocessable_entity
+            flash.now[:alert] = '記事の投稿に失敗しました。'
+            render :new
+        end
+    end
+    
+    def destroy
+        @article = Article.find(params[:id])
+        if @article.user == current_user
+            @article.likes.destroy_all # 記事に関連するいいねをすべて削除
+            @article.destroy!
+            redirect_to articles_url, notice: '記事が削除されました。'
+        else
+            redirect_to articles_path, alert: 'この記事を削除する権限がありません。'
         end
     end
 

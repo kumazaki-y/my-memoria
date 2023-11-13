@@ -1,5 +1,6 @@
 .container
-  .comments
+  = link_to 'Back', :back, class: 'btn btn-default'
+  .comments{ data: { article_id: @article.id } }
 
   .new_comment{ data: { article_id: @article.id } }
     = form_with model: [@article, @comment], local: true, html: { id: 'comment_form' } do |f|

@@ -9,10 +9,11 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %p.notice= notice
-    %p.alert= notice
-    %p.alert= alert
+    - if notice
+      %p.notice= notice
+    - if alert
+      %p.alert= alert
     = yield
   %footer
     .container 
-      = image_tag("home_indicator.png", alt: "ホームインジケーター", class: "image")
+      = image_tag("home_indicator.png", alt: "ホームインジケーター", class: "home-indicator")

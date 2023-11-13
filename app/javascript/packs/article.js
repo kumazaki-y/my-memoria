@@ -1,10 +1,9 @@
-import axios from 'axios';
-
+import $ from 'jquery';
 
 document.addEventListener('DOMContentLoaded', function() {
     // 特定のページでのみ実行するための条件
     if (!document.querySelector('.article-new-header')) return;
-  
+
     // 画像のプレビュー機能
     const fileInput = document.querySelector('.article-new-file-input');
     const previewArea = document.querySelector('.article-new-preview');
@@ -29,24 +28,53 @@ document.addEventListener('DOMContentLoaded', function() {
         reader.readAsDataURL(file);
       }
     });
-  
-    // axiosを使用した非同期アップロード
-    const postButton = document.querySelector('.article-new-post');
-    const textarea = document.querySelector('.article-new-input');
-    postButton.addEventListener('click', function() {
-      const formData = new FormData();
-      const files = fileInput.files;
-      for (let i = 0; i < files.length; i++) {
-        formData.append('article[images][]', files[i]);
-      }
-      formData.append('article[text]', textarea.value);
-      
-      axios.post('/articles', formData)
-        .then(function(response) {
-            window.location.href = '/';
-        })
-        .catch(function(error) {
-            alert('エラーが発生しました。');
-        });
-    });
+});
+
+$(function() {
+  var images = []; // 画像のURLを格納する配列
+  var currentIndex = 0;
+  $(".article-image").on("click", function() {
+    // 記事のすべての画像要素を取得
+    var imageElements = $(this).closest('.article-image-container').find('.article-image');
+
+    // それぞれの画像要素からURLを取得して配列に格納
+    images = imageElements.map(function() {
+        return $(this).data('target');
+    }).get();
+
+    currentIndex = imageElements.index(this); // クリックされた画像のインデックスを取得
+    updateModalImage();
+    $(".modal").show();
+});
+
+
+  function updateModalImage() {
+    if (images.length > 0 && currentIndex >= 0 && currentIndex < images.length) {
+        $(".modal-image").attr("src", images[currentIndex]);
+    }
+  }
+
+  $(".left-arrow").on("click", function() {
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateModalImage();
+    }
+  });
+
+  $(".right-arrow").on("click", function() {
+    if (currentIndex < images.length - 1) {
+        currentIndex++;
+        updateModalImage();
+    }
+  });
+
+  $(".close").on("click", function() {
+    $(".modal").hide();
+  });
+
+  $(window).on("click", function(e) {
+    if ($(e.target).hasClass("modal")) {
+      $(".modal").hide();
+    }
+  });
 });
