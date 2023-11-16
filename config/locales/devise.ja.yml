@@ -1,0 +1,25 @@
+ja:
+  devise:
+    failure:
+      already_authenticated: "既にログインしています。"
+      inactive: "アカウントはまだ有効化されていません。"
+      invalid: "無効な%{authentication_keys}またはパスワードです。"
+      locked: "アカウントはロックされています。"
+      last_attempt: "アカウントがロックされる前に、あと1回の試行が可能です。"
+      not_found_in_database: "無効な%{authentication_keys}またはパスワードです。"
+      timeout: "セッションが期限切れです。続行するには再度ログインしてください。"
+      unauthenticated: "続行するにはログインまたはサインアップが必要です。"
+      unconfirmed: "続行するには、メールアドレスを確認する必要があります。"
+    registrations:
+      destroyed: "さようなら！アカウントは正常にキャンセルされました。またのお越しをお待ちしています。"
+      signed_up: "ようこそ！正常にサインアップしました。"
+      signed_up_but_inactive: "正常にサインアップしました。しかし、アカウントがまだ有効化されていないため、ログインすることはできません。"
+      signed_up_but_locked: "正常にサインアップしました。しかし、アカウントがロックされているため、ログインすることはできません。"
+      signed_up_but_unconfirmed: "確認リンクが含まれたメッセージがメールアドレスに送信されました。リンクをたどってアカウントを有効化してください。"
+      update_needs_confirmation: "アカウントは正常に更新されましたが、新しいメールアドレスを確認する必要があります。メールを確認し、確認リンクをたどって新しいメールアドレスを確認してください。"
+      updated: "アカウントは正常に更新されました。"
+      updated_but_not_signed_in: "アカウントは正常に更新されましたが、パスワードが変更されたため、もう一度サインインする必要があります。"
+    sessions:
+      signed_in: "正常にログインしました。"
+      signed_out: "正常にログアウトしました。"
+      already_signed_out: "正常にログアウトしました。"

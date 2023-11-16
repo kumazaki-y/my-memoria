@@ -31,6 +31,12 @@ import './like';
 import './comment'; 
 import './relationship'; 
 
+$(function(){
+    $('.menu-button').on('click',function(){
+      $('.dropdown-menu').toggle();
+    });
+  });
+  
 
 
 

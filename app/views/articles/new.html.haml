@@ -1,25 +1,24 @@
-.container
-  = form_with(model: @article, local: true) do |f|
-    - if @article.errors.any?
-      - @article.errors.full_messages.each do |message|
-        %p= message
+= form_with(model: @article, local: true) do |f|
+  - if @article.errors.any?
+    - @article.errors.full_messages.each do |message|
+      %p= message
 
-    .article-new-header
-      = link_to 'Back', :back, class: 'btn article-new-cancel'
-      .article-new-status New Post
-      = f.submit 'Post', class: ' btn article-new-post'
-    
-    .article-new-profile
-      - if @profile.avatar.attached?
-        = image_tag @profile.avatar, class: 'article-new-avatar'
-      - else
-        %img.article-new-avatar{ src: "default_avatar_path.jpg" } 
-      %span.article-new-username= @profile.user.username
+  .article-new-header
+    = link_to 'Back', :back, class: 'btn article-new-cancel'
+    .article-new-status New Post
+    = f.submit 'Post', class: ' btn article-new-post'
+  
+  .article-new-profile
+    - if @profile.avatar.attached?
+      = image_tag @profile.avatar, class: 'article-new-avatar'
+    - else
+      %img.article-new-avatar{ src: "default_avatar_path.jpg" } 
+    %span.article-new-username= @profile.user.username
 
-    .article-new-textarea
-      = f.text_area :content, class: 'article-new-input', placeholder: "What's on your mind?"
+  .article-new-textarea
+    = f.text_area :content, class: 'article-new-input', placeholder: "What's on your mind?"
 
-    .article-new-upload
-      = f.label :images, ' + Album', class: 'article-new-label'
-      = f.file_field :images, multiple: true, accept: "image/*", class: 'article-new-file-input'
-      .article-new-preview
+  .article-new-upload
+    = f.label :images, ' + Album', class: 'article-new-label'
+    = f.file_field :images, multiple: true, accept: "image/*", class: 'article-new-file-input'
+    .article-new-preview
