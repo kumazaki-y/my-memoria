@@ -29,5 +29,20 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
+ja:
+  datetime:
+    distance_in_words:
+      x_days:
+        one: "1 day ago"
+        other: "%{count} day ago"
+      x_minutes:
+        one: "1 minute ago"
+        other: "%{count} minutes ago"
+      x_seconds:
+        one: "1 second ago"
+        other: "%{count} seconds ago"
+      less_than_x_minutes:
+        one: "Less than 1 minute"
+        other: "Less than %{count} minute"
+        
+

@@ -13,7 +13,15 @@
       %p.notice= notice
     - if alert
       %p.alert= alert
-    = yield
+
+    - if user_signed_in?
+      .menu-container
+        %button.menu-button Menu
+        .dropdown-menu
+          = link_to 'Home', root_path, class: 'dropdown-link'
+          = link_to 'Profile', profile_path(current_user), class: 'dropdown-link'
+          = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-link'
+          
+    .container
+      = yield
   %footer
-    .container 
-      = image_tag("home_indicator.png", alt: "ホームインジケーター", class: "home-indicator")

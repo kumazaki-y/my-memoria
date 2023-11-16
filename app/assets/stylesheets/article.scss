@@ -1,3 +1,4 @@
+@import '_variables';
 
 .article-new-header {
   display: flex;
@@ -85,13 +86,18 @@
 
 
 .timeline-page {
+  margin-top: 30px;
   .post-button {
     position: fixed; // 画面に対して固定
-    top: 5px;
+    top: 15px;
+    padding: 10px;
+    border-radius: 20%;
+    background-color: #ffffff;
+    border: 1px solid $main-color;
     z-index: 1000;   // 他の要素より上に表示
 
     @media (min-width: 1px) { // デスクトップ用
-      left: calc(50% - 172px); // ビューポートの中央から左に移動
+      left: calc(50% - 170px); // ビューポートの中央から左に移動
     }
   }
 
@@ -125,7 +131,7 @@
   }
 
   .delete-article-button {
-      font-weight: bold;
+      font-size: 12px;
   }
 }
 
@@ -148,11 +154,7 @@
           cursor: pointer;
 
           &.like-button {
-            color: #e74c3c; // いいねのアイコンの色を設定
-          }
-
-          &.comment-button, &.share-button {
-            color: #7f8c8d; // コメントとシェアのアイコンの色を設定
+            color: #e74c3c;
           }
         }
       }
