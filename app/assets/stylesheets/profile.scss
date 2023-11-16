@@ -1,3 +1,5 @@
+@import "_variables";
+
 .profile-header {
   display: flex;
   align-items: center;
@@ -48,7 +50,8 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border: 1px solid #c9c9c9; // 枠線の色と太さを設定
+  border: 1px solid $main-color;
+  padding: 4px;
 
   // 画像を綺麗に表示するための設定
   object-fit: cover; // 画像の比率を保ちつつ、要素のボックスに合わせて表示

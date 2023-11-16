@@ -1,6 +1,8 @@
+@import "_variables";
+
 .form {
     width: 343px; // フォームの幅
-    max-width: 343px; // フォームの最大幅
+    max-width: 90%; // フォームの最大幅
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -13,7 +15,8 @@
         margin-bottom: 5px; // ラベルと入力フィールド間のスペース
       }
       input{
-        width: 343px;   
+        width: 343px;
+        max-width: 90%; 
         padding: 10px; // 入力フィールドの内側のスペース
         border: 1px solid #ccc; // 境界線のスタイル
         border-radius: 4px; // 角の丸み
@@ -27,23 +30,26 @@
 
     .btn {
         width: 343px; // ボタンの幅
+        max-width: 90%; 
         padding: 10px 15px;
         border-radius: 4px; // ボタンの角の丸み
-        display: block; // ブロックレベル要素として
-
 
         &-primary {
         background-color: #007bff; // プライマリボタンの背景色
         color: white; // プライマリボタンのテキスト色
 
             &:hover {
-                background-color: darken(#007bff, 5%); // ホバー時の背景色
+                background-color: darken($main-color, 5%); // ホバー時の背景色
             }
         }
             &-link {
             background-color: transparent; // リンクボタンの背景色
             color: #007bff; // リンクボタンのテキスト色
             text-align: right; // テキストを右に寄せる
+            display: block;
+            width: auto; // 幅を自動に設定
+            max-width: none; // 最大幅を解除
+            padding: 0;
 
             &:hover {
                 color: darken(#007bff, 5%); // ホバー時のテキスト色
