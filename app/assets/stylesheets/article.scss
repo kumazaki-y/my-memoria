@@ -247,7 +247,7 @@
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 10000;
   left: 0;
   top: 0;
   width: 100%;
@@ -255,42 +255,46 @@
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
 
-  &-content {
-    margin: 15% auto;
-    padding: 20px;
-    width: 80%;
-  }
-
-  .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-
-    &:hover,
-    &:focus {
-      color: #000;
-      text-decoration: none;
-      cursor: pointer;
+    &-content {
+      margin: 15% auto;
+      padding: 20px;
+      width: 80%;
+      position: relative;
     }
-  }
 
-  .left-arrow,
-  .right-arrow {
-    position: absolute;
-    top: 50%;
-    font-size: 24px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    border: none;
-    cursor: pointer;
-  }
+    .close {
+      position: absolute;
+      right: -10px;
+      top: 20px;
+      float: right;
+    }
 
-  .left-arrow {
-    left: 10px;
-  }
+    .left-arrow,
+    .right-arrow {
+      position: fixed;
+      top:30px;
+      }
 
-  .right-arrow {
-    right: 10px;
+    .left-arrow {
+      left: 15px;
+    }
+
+    .right-arrow {
+      right: 15px;
+    }
+
+    .modal-btn{
+      color: #ffffff;
+      background-color: #000000;
+      font-size: 28px;
+      border: none;
+
+      &:hover,
+      &:focus {
+        color: #000000;
+        background-color: #ffffff;
+        text-decoration: none;
+        cursor: pointer;
+    }
   }
 }

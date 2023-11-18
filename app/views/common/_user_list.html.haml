@@ -5,4 +5,10 @@
         = image_tag(user.profile.avatar.presence || 'default-avatar.png', class: 'user-avatar')
         .user-info
           %span.user-name= user.username
-          %span.user-last-login= time_ago_in_words(user.last_sign_in_at)
+          - if user.last_active_at && user.last_active_at > 5.minutes.ago
+            %span.user-last-login オンライン
+          - else
+            %span.user-last-login= time_ago_in_words(user.last_sign_in_at)
+
+
+

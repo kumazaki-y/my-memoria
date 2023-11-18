@@ -12,7 +12,7 @@ class Comment < ApplicationRecord
     end
 
   private
-  def send_email
+  def send_email #コメントでメンションされたユーザーに通知メールを送る
     mentions = content.scan(/@([a-zA-Z0-9_]+)/)
   
     mentions.each do |username|
