@@ -36,11 +36,12 @@
 								= image_tag image, class: 'side-image article-image', data: { target: rails_blob_path(image, only_path: true) }
 
 				.modal
-					%span.close &times;
 					.modal-content
 						%img{src: "", alt: "モーダル画像", class: "modal-image"}
-					%button.left-arrow &lt;
-					%button.right-arrow &gt;
+						%button.close{class: "modal-btn"} &times;
+						%button.left-arrow{class: "modal-btn"} &lt;
+						%button.right-arrow{class: "modal-btn"} &gt;
+
 
 				.article-actions
 					.like-icons{ 'data-article-id': article.id, 'data-is-liked': current_user.has_liked?(article) }

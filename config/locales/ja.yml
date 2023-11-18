@@ -4,6 +4,9 @@ ja:
       x_days:
         one: "1日前"
         other: "%{count}日前"
+      about_x_hours:
+        one: "1時間前"
+        other: "%{count}時間前"
       x_minutes:
         one: "1分前"
         other: "%{count}分前"

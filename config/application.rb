@@ -21,6 +21,7 @@ module KumazakiInstaApp
     # the framework and any gems in your application.
     config.active_job.queue_adapter = :sidekiq
     config.i18n.default_locale = :ja
+    config.time_zone = 'Tokyo'
 
   end
 end

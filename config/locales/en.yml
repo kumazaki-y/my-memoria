@@ -35,6 +35,9 @@ ja:
       x_days:
         one: "1 day ago"
         other: "%{count} day ago"
+      about_x_hours:
+        one: "1 hour ago"
+        other: "%{count} hours ago"
       x_minutes:
         one: "1 minute ago"
         other: "%{count} minutes ago"
