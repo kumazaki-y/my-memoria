@@ -1,13 +1,12 @@
-= link_to 'Back', :back, class: 'btn btn-default'
-.comments{ data: { article_id: @article.id } }
+= link_to 'Back', :back
+.comment-btn-container
+  = button_tag "Comment", type: "button", id: "show_comment_form_btn", class: 'comment-btn'
 
 .new_comment{ data: { article_id: @article.id } }
   = form_with model: [@article, @comment], local: true, html: { id: 'comment_form' } do |f|
-    = f.text_area :content, placeholder: "コメントを入力..."
-    = f.submit "コメントを投稿", class: 'button', data: { disable_with: false }
+    = f.text_area :content, placeholder: "Enter a comment..."
+    .form-btn-container
+      = f.submit "Post Comment", class: 'comment-btn', data: { disable_with: false }
 
 
-= button_tag "コメントする", type: "button", id: "show_comment_form_btn"
-
-
-
+.comments{ data: { article_id: @article.id } }

@@ -31,7 +31,7 @@ if ($('.new_comment').length > 0) {
 						<div class="comment-content">
 							<div class="user-and-action">
 								<strong>${comment.user.username}</strong>
-								${comment.is_current_user ? `<button class="delete-comment" data-comment-id="${comment.id}">削除</button>` : ''}
+								${comment.is_current_user ? `<button class="delete-comment" data-comment-id="${comment.id}">delete</button>` : ''}
 							</div>
 							<p>${comment.content}</p>
 						</div>
@@ -74,7 +74,7 @@ if ($('.new_comment').length > 0) {
 						<div class="comment-content">
 							<div class="user-and-action">
 								<strong>${comment.user.username}</strong>
-								${comment.is_current_user ? `<button class="delete-comment" data-comment-id="${comment.id}">削除</button>` : ''}
+								${comment.is_current_user ? `<button class="delete-comment" data-comment-id="${comment.id}">delete</button>` : ''}
 							</div>
 							<p>${comment.content}</p>
 						</div>

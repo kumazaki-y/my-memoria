@@ -6,7 +6,7 @@ class Article < ApplicationRecord
 
   validate :validate_images_count
 
-  scope :in_last_24_hours, -> { where('articles.created_at > ?', 24.hours.ago) }
+  scope :in_last_24_hours, -> { where('articles.created_at > ?', 24.hours.ago) }#人気記事の表示スコープ
   scope :popular, -> { 
     joins(:likes)
     .select('articles.*, COUNT(likes.id) AS likes_count')
@@ -14,6 +14,9 @@ class Article < ApplicationRecord
     .order('likes_count DESC')
   }
 
+    scope :search_by_text, ->(query) { where("text LIKE ?", "%#{query}%") } #記事のテキスト検索スコープ
+    scope :search_by_username, -> (query) { joins(:user).where("users.name LIKE ?", "%#{query}%") }#記事のユーザー検索スコープ
+  
   private
 
   def validate_images_count

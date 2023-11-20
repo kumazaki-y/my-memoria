@@ -8,7 +8,7 @@
           - if user.last_active_at && user.last_active_at > 5.minutes.ago
             %span.user-last-login オンライン
           - else
-            %span.user-last-login= time_ago_in_words(user.last_sign_in_at)
+            %span.user-last-login= time_ago_in_words(user.last_active_at)
 
 
 

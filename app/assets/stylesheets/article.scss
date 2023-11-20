@@ -14,11 +14,6 @@
     cursor: pointer;
   }
 
-  .article-new-cancel {
-      background-color: #d0d0d0;
-      font-size: 12px;
-  }
-
   .article-new-post {
       background-color: #3498db;
       color: white;
@@ -39,6 +34,8 @@
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
+    border: 1px solid $main-color;
+    padding: 2px;
   }
 
   .article-new-username {
@@ -50,56 +47,67 @@
   margin-top: 20px;
 
   .article-new-input {
-    width: 100%;
-    padding: 10px;
+    width: 357px;
+    padding-bottom: 80px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
   }
 }
 
-  .article-new-upload {
-    margin-top: 20px;
-    position: relative;
+.article-new-upload {
+  margin-top: 20px;
+  position: relative;
 
-    .article-new-label {
-      cursor: pointer;
-      border: 1px solid #ccc;
-      padding: 10px;
-      border-radius: 5px;
-    }
+  .article-new-label {
+    cursor: pointer;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+  }
 
-    .article-new-file-input {
-      display: none;
-    }
+  .article-new-file-input {
+    display: none;
+  }
 
-    .article-new-preview {
-      display: flex;
-      margin-top: 10px;
-      img {
-        width: 100px;
-        height: 100px;
-        margin-right: 10px;
-      }
+  .article-new-preview {
+    display: flex;
+    margin-top: 10px;
+    img {
+      width: 100px;
+      height: 100px;
+      margin-right: 10px;
     }
   }
+}
 
 
 .timeline-page {
   margin-top: 30px;
-  .post-button {
-    position: fixed; // 画面に対して固定
+  .post-btn ,.search-btn {
+    max-width: 20px;
+    max-height: 20px;
+    position: fixed;
     top: 15px;
     padding: 10px;
     border-radius: 20%;
     background-color: #ffffff;
     border: 1px solid $main-color;
-    z-index: 1000;   // 他の要素より上に表示
+    z-index: 1000;
 
     @media (min-width: 1px) { // デスクトップ用
       left: calc(50% - 170px); // ビューポートの中央から左に移動
     }
   }
+  .search-btn{
+    position: fixed;
+    top: 15px;
+
+    @media (min-width: 1px) {
+      left: calc(50% - 100px);
+    }
+  }
+}
 
   .article-list {
     list-style-type: none;
@@ -109,31 +117,34 @@
       padding: 16px;
       border-bottom: 1px solid #e1e1e1;
 
-.user-info {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; // 左側の要素（ユーザー情報）と右側の要素（削除ボタン）を画面の両端に配置
+      .user-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; // 左側の要素（ユーザー情報）と右側の要素（削除ボタン）を画面の両端に配置
 
-  .user-details {
-    display: flex;
-    align-items: center;
+        .user-details {
+          display: flex;
+          align-items: center;
 
-    .user-image {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin-right: 8px;
-    }
+          .user-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 8px;
+            border: 1px solid $main-color;
+            padding: 2px;
+            
+          }
 
-    .user-name {
-      font-weight: bold;
-    }
-  }
+          .user-name {
+            font-weight: bold;
+          }
+        }
 
-  .delete-article-button {
-      font-size: 12px;
-  }
-}
+        .delete-article-button {
+            font-size: 12px;
+        }
+      }
 
       .post-time {
         color: #a1a1a1;
@@ -164,8 +175,6 @@
       }
     }
   }
-}
-
 
 .like-icons {
   position: relative;

@@ -1,5 +1,5 @@
 .profile-header
-  = link_to 'Back', :back, class: 'btn btn-default'
+  = link_to 'Back', :back
   - unless current_user == @user
     %button.follow-btn{ data: { user_id: @user.id, relationship_status: current_user.following?(@user) ? 'unfollow' : 'follow' } }
       = current_user.following?(@user) ? 'Unfollow' : 'Follow'
@@ -44,10 +44,10 @@
 
 
 .modal
-  %span.close &times;
   .modal-content
     %img{src: "", alt: "モーダル画像", class: "modal-image"}
-  %button.left-arrow &lt;
-  %button.right-arrow &gt;
+    %button.close{class: "modal-btn"} &times;
+    %button.left-arrow{class: "modal-btn"} &lt;
+    %button.right-arrow{class: "modal-btn"} &gt;
 
 
