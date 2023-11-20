@@ -1,0 +1,11 @@
+= link_to 'Back', :back
+= form_with url: search_index_path, method: :get, local: true do |f|
+    = f.text_field :query, class:'search-form'
+    = f.submit "search", class:'search-form searching'
+
+- if @articles.any?
+    %ul.article-list
+        - @articles.each do |article|
+            = render 'common/article', article: article
+- elsif params[:query].present?
+%p 検索結果がありません

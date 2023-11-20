@@ -1,4 +1,4 @@
 .user-list-container
-  %h1 Following
-  = link_to 'Back', :back, class: 'btn btn-back'
+  = link_to 'Back', :back
+  %p Following
   = render partial: 'common/user_list', locals: { users: @followings }

@@ -1,59 +1,56 @@
 @import "_variables";
 
 .form {
-    width: 343px; // フォームの幅
-    max-width: 90%; // フォームの最大幅
+    width: 343px;
+    max-width: 90%;
     padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 
     .field {
-      margin-bottom: 20px; // フィールド間のスペース
+      margin-bottom: 20px;
 
       .f-label {
-        margin-bottom: 5px; // ラベルと入力フィールド間のスペース
+        margin-bottom: 5px;
       }
       input{
         width: 343px;
         max-width: 90%; 
-        padding: 10px; // 入力フィールドの内側のスペース
-        border: 1px solid #ccc; // 境界線のスタイル
-        border-radius: 4px; // 角の丸み
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
         &:focus {
           border-color: #66afe9;
-          outline: 0; // フォーカス時にデフォルトのアウトラインを除去
+          outline: 0;
         }
       }
     }
 
-
+    .link-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-top: 10px;
+    }
+    
     .btn {
-        width: 343px; // ボタンの幅
-        max-width: 90%; 
+        width: 343px;
+        max-width: 90%;
         padding: 10px 15px;
-        border-radius: 4px; // ボタンの角の丸み
+        border-radius: 4px;
 
         &-primary {
-        background-color: #007bff; // プライマリボタンの背景色
-        color: white; // プライマリボタンのテキスト色
+        background-color: #007bff;
+        color: white;
 
             &:hover {
-                background-color: darken($main-color, 5%); // ホバー時の背景色
+                background-color: darken($main-color, 5%);
             }
         }
             &-link {
-            background-color: transparent; // リンクボタンの背景色
-            color: #007bff; // リンクボタンのテキスト色
-            text-align: right; // テキストを右に寄せる
-            display: block;
-            width: auto; // 幅を自動に設定
-            max-width: none; // 最大幅を解除
-            padding: 0;
-
-            &:hover {
-                color: darken(#007bff, 5%); // ホバー時のテキスト色
-            }
+            color: #007bff;
+            margin-bottom: 5px;
         }
     }
 }
