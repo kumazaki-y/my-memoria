@@ -9,4 +9,4 @@
       = f.submit "Post Comment", class: 'comment-btn', data: { disable_with: false }
 
 
-.comments{ data: { article_id: @article.id } }
+.comments{ data: { article_id: @article.id, default_avatar_url: @default_avatar_url } }

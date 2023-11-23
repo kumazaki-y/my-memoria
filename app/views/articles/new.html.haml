@@ -9,10 +9,7 @@
     = f.submit 'Post', class: ' btn article-new-post'
   
   .article-new-profile
-    - if @profile.avatar.attached?
-      = image_tag @profile.avatar, class: 'article-new-avatar'
-    - else
-      %img.article-new-avatar{ src: "default_avatar_path.jpg" } 
+    = image_tag(@profile.avatar.presence || 'default-avatar.png', class: 'article-new-avatar')
     %span.article-new-username= @profile.user.username
 
   .article-new-textarea

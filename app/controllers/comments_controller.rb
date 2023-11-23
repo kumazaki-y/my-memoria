@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
     before_action :set_article
 
     def index
+      @default_avatar_url = view_context.asset_path('default-avatar.png')
       @comment = @article.comments.new
       @comments = @article.comments.order(created_at: :desc)
       respond_to do |format|
@@ -25,6 +26,7 @@ class CommentsController < ApplicationController
     
 
     def create
+      @default_avatar_url = view_context.asset_path('default-avatar.png')
       @comment = @article.comments.build(comment_params)
       @comment.user = current_user
       if @comment.save

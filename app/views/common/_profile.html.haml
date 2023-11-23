@@ -5,10 +5,8 @@
       = current_user.following?(@user) ? 'Unfollow' : 'Follow'
 .profile-info
   %p= @user.username
-- if @user.profile.avatar.attached?
-  = image_tag @user.profile.avatar, class: 'profile-avatar'
-- else
-  = image_tag 'default-avatar.png', class: 'profile-avatar', alt: 'デフォルトのプロフィール画像'
+
+= image_tag(@user.profile.avatar.presence || 'default-avatar.png', class: 'profile-avatar')
 
 %input#avatarInput{ type: "file", name: "avatar" }
 
