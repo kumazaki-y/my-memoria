@@ -1,18 +1,19 @@
 import axios from 'axios';
-document.addEventListener('DOMContentLoaded', () => {
-  const likeIcons = document.querySelectorAll('.like-icons');
+import $ from 'jquery';
 
-  likeIcons.forEach((iconContainer) => {
-    const articleId = iconContainer.dataset.articleId;
-    const inactiveIcon = iconContainer.querySelector('.like-button-inactive');
-    const activeIcon = iconContainer.querySelector('.like-button-active');
+$(function() {
+  $('.like-icons').each(function() {
+    const iconContainer = $(this);
+    const articleId = iconContainer.data('articleId');
+    const inactiveIcon = iconContainer.find('.like-button-inactive');
+    const activeIcon = iconContainer.find('.like-button-active');
 
-    inactiveIcon.addEventListener('click', () => {
+    inactiveIcon.on('click', function() {
       axios.post(`/articles/${articleId}/like`)
         .then((response) => {
           if (response.data.status === 'liked') {
-            inactiveIcon.style.display = 'none';
-            activeIcon.style.display = 'block';
+            inactiveIcon.hide();
+            activeIcon.show();
           }
         })
         .catch((error) => {
@@ -20,12 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    activeIcon.addEventListener('click', () => {
+    activeIcon.on('click', function() {
       axios.delete(`/articles/${articleId}/like`)
         .then((response) => {
           if (response.data.status === 'unliked') {
-            inactiveIcon.style.display = 'block';
-            activeIcon.style.display = 'none';
+            inactiveIcon.show();
+            activeIcon.hide();
           }
         })
         .catch((error) => {
