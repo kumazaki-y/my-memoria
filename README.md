@@ -24,3 +24,9 @@
 ・mailgunによるメール送付機能（DNS設定中により未搭載）
 
 ・独自ドメインの利用（DNS設定中により未搭載）
+
+使用技術
+-
+-Docker
+-Github　Actionｓ
+-Heroku
