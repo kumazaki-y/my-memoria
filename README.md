@@ -27,6 +27,18 @@
 
 使用技術
 -
--Docker
--Github　Actionｓ
--Heroku
+・Docker（未）
+
+・Github　Actionｓ（未）
+
+・React
+
+・postgleSQL
+
+・AWS S3
+
+・Ruby
+
+・Ruby on Rails
+
+・Heroku
