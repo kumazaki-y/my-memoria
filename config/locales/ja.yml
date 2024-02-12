@@ -1,6 +1,12 @@
 ja:
   datetime:
     distance_in_words:
+      x_years:
+        one: 1年
+        other: "%{count}年前"
+      x_months:
+        one: 1ヶ月
+        other: "%{count}ヶ月前"
       x_days:
         one: "1日前"
         other: "%{count}日前"
