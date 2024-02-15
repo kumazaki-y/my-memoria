@@ -39,14 +39,12 @@
 
 | 言語・フレームワーク  | バージョン |
 | --------------------- | ---------- |
-| Node.js               | 3.11.4     |
-| Java Script           | 4.2.1      |
-| Ruby on Rails         | 3.14.0     |
-| Ruby                  | 8.0        |
-|                | 16.17.0    |
-| React                 | 18.2.0     |
-| Next.js               | 13.4.6     |
-| Terraform             | 1.3.6      |
+| Node.js               |20.11.0     |
+| Ruby on Rails         |6.0.6.1     |
+| Ruby                  |2.7.7       |
+| postgleSQL            |14.9        |
+| Redis                 |7.2.4       |
+
 
 その他のパッケージのバージョンは pyproject.toml と package.json を参照してください
 
