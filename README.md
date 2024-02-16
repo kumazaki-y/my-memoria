@@ -51,55 +51,65 @@
 
 
 ## ディレクトリ構成
-<!-- Treeコマンドを使ってディレクトリ構成を記載 -->
-❯ tree -a -I "node_modules|.next|.git|.pytest_cache|static" -L 2
+```
 .
-├── .devcontainer
-│   └── devcontainer.json
-├── .env
-├── .github
-│   ├── action
-│   ├── release-drafter.yml
-│   └── workflows
-├── .gitignore
-├── Makefile
+├── Dockerfile
+├── Gemfile
+├── Gemfile.lock
 ├── README.md
-├── backend
-│   ├── .vscode
-│   ├── application
-│   ├── docs
-│   ├── manage.py
-│   ├── output
-│   ├── poetry.lock
-│   ├── project
-│   └── pyproject.toml
-├── containers
-│   ├── django
-│   ├── front
-│   ├── mysql
-│   └── nginx
+├── Rakefile
+├── app
+│   ├── assets
+│   ├── channels
+│   ├── controllers
+│   ├── helpers
+│   ├── javascript
+│   ├── jobs
+│   ├── mailers
+│   ├── models
+│   ├── serializers
+│   └── views
+├── bin
+│   ├── rails
+│   ├── rake
+│   ├── webpack
+│   └── webpack-dev-server
+├── config
+│   ├── application.rb
+│   ├── cable.yml
+│   ├── credentials.yml.enc
+│   ├── database.yml
+│   ├── environment.rb
+│   ├── environments
+│   ├── initializers
+│   ├── locales
+│   ├── puma.rb
+│   ├── routes.rb
+│   ├── sidekiq.yml
+│   └── webpacker.yml
+├── db
+│   ├── migrate
+│   ├── schema.rb
+│   └── seeds.rb
 ├── docker-compose.yml
-├── frontend
-│   ├── .gitignore
-│   ├── README.md
-│   ├── __test__
-│   ├── components
-│   ├── features
-│   ├── next-env.d.ts
-│   ├── package-lock.json
-│   ├── package.json
-│   ├── pages
-│   ├── postcss.config.js
-│   ├── public
-│   ├── styles
-│   ├── tailwind.config.js
-│   └── tsconfig.json
-└── infra
-    ├── .gitignore
-    ├── docker-compose.yml
-    ├── main.tf
-    ├── network.tf
-    └── variables.tf
+├── entrypoint.sh
+├── lib
+│   └── tasks
+├── public
+│   ├── 404.html
+│   ├── 422.html
+│   ├── 500.html
+│   ├── favicon.ico
+│   └── robots.txt
+├── spec
+│   ├── factories
+│   ├── models
+│   ├── requests
+│   └── system
+└── storage
+```
+
+<p align="right">(<a href="#top">トップへ</a>)</p>
 
 ## 使用技術 (フロントエンド)
 Axios ( ) - 非同期処理、HTTPクライアント
