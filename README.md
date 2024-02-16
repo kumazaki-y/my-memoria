@@ -29,10 +29,9 @@
 5. [トラブルシューティング](#トラブルシューティング)
 
 ## アプリ概要
-画像投稿アプリ（My_MEMO）
 技術力の証明を目的に、ポートフォリオとして[画像投稿アプリ (My_MEMO)](https://kumazaki-insta-app-f96286e3999e.herokuapp.com/users/sign_in) を作成しました。 
 
-スクールで学んだ技術のアウトプットのほか、カリキュラム外の機能を追加することに挑戦しています。
+スクールで学んだ技術のアウトプットのほか、独自に学習した機能を追加することに挑戦しています。
 
 ## 環境
 <!-- 言語、フレームワーク、ミドルウェア、インフラの一覧とバージョンを記載 -->
@@ -50,6 +49,57 @@
 
 <p align="right">(<a href="#top">トップへ</a>)</p>
 
+
+## ディレクトリ構成
+<!-- Treeコマンドを使ってディレクトリ構成を記載 -->
+❯ tree -a -I "node_modules|.next|.git|.pytest_cache|static" -L 2
+.
+├── .devcontainer
+│   └── devcontainer.json
+├── .env
+├── .github
+│   ├── action
+│   ├── release-drafter.yml
+│   └── workflows
+├── .gitignore
+├── Makefile
+├── README.md
+├── backend
+│   ├── .vscode
+│   ├── application
+│   ├── docs
+│   ├── manage.py
+│   ├── output
+│   ├── poetry.lock
+│   ├── project
+│   └── pyproject.toml
+├── containers
+│   ├── django
+│   ├── front
+│   ├── mysql
+│   └── nginx
+├── docker-compose.yml
+├── frontend
+│   ├── .gitignore
+│   ├── README.md
+│   ├── __test__
+│   ├── components
+│   ├── features
+│   ├── next-env.d.ts
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── pages
+│   ├── postcss.config.js
+│   ├── public
+│   ├── styles
+│   ├── tailwind.config.js
+│   └── tsconfig.json
+└── infra
+    ├── .gitignore
+    ├── docker-compose.yml
+    ├── main.tf
+    ├── network.tf
+    └── variables.tf
 
 ## 使用技術 (フロントエンド)
 Axios ( ) - 非同期処理、HTTPクライアント
