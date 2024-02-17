@@ -78,8 +78,11 @@
 
 <p align="right">(<a href="#top">トップへ</a>)</p>
 
+## インフラ構成図
+
 ## ER図
-dbdiagram.ioで作成しました。
+![ER図](https://github.com/kumazaki-y/kumazaki-insta-app/assets/139770475/0a87b02c-dbb2-4603-8003-10d262b1dfbe)
+
 
 
 
