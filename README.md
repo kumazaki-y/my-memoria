@@ -23,93 +23,66 @@
 ## 目次
 
 1. [アプリ概要](#アプリ概要)
-2. [環境](#環境)
-3. [ディレクトリ構成](#ディレクトリ構成)
-4. [開発環境構築](#開発環境構築)
-5. [トラブルシューティング](#トラブルシューティング)
+2. [技術スタック](#技術スタック)
+3. [インフラ構成図](#インフラ構成図)
+4. [ER図](#ER図)
+5. [機能紹介](#機能紹介)
 
 ## アプリ概要
 技術力の証明を目的に、ポートフォリオとして[画像投稿アプリ (My_MEMO)](https://kumazaki-insta-app-f96286e3999e.herokuapp.com/users/sign_in) を作成しました。 
 
 スクールで学んだ技術のアウトプットのほか、独自に学習した機能を追加することに挑戦しています。
 
-## 環境
+## 技術スタック
 <!-- 言語、フレームワーク、ミドルウェア、インフラの一覧とバージョンを記載 -->
+### フロントエンド
+| 名称          | 説明                                     |
+| ------------- | ------------------------------       |
+| Node.js  20.11.0|  JavaScriptライブラリのビルドに使用         |
+| Bootstrap       | グリッドシステムによるレスポンシブ表示        |
+|Axios            | HTTPクライアント、非同期処理           |
+|JQuery            |                                        |
 
-| 言語・フレームワーク  | バージョン |
-| --------------------- | ---------- |
-| Node.js               |20.11.0     |
-| Ruby on Rails         |6.0.6.1     |
-| Ruby                  |2.7.7       |
-| postgleSQL            |14.9        |
-| Redis                 |7.2.4       |
+### バックエンド
+| 名称                    |     説明             |
+| -------------           | --------------         |
+| Ruby on Rails  6.0.6.1|  バックエンドフレームワーク      |
+| Ruby 2.7.7            |   スクリプト言語        |
+|Mailgun                |      メール送受信    |
+|Devise                  | 認証機能             |  
 
+### データベース
+| 名称               | 説明                             |
+| ---------        | -------------------------------- |
+| PostgreSQL 14.9  | データベース              |
+| Redis  7.2.4     |キャッシュやセッション管理 |
 
-その他のパッケージのバージョンは pyproject.toml と package.json を参照してください
+### インフラ・デプロイメント
+| 名称            | 説明                                       |
+| --------------- | ------------------------------            |
+| Docker 20.10.7           | 開発・本番環境のコンテナ化             |
+| Docker Compose  1.29.2   |  マルチコンテナの管理                 |
+| Heroku                   | デプロイメントプラットフォーム             |
+| GitHub                   | バージョン管理                       |
+|AWS S3                    |画像のストレージ|
 
-<p align="right">(<a href="#top">トップへ</a>)</p>
+### テスト
+| 名称      | 説明           |
+| --------- | -------------- |
+| RSpec     | バックエンドテスト |
 
-
-## ディレクトリ構成
-```
-.
-├── Dockerfile
-├── Gemfile
-├── Gemfile.lock
-├── README.md
-├── Rakefile
-├── app
-│   ├── assets
-│   ├── channels
-│   ├── controllers
-│   ├── helpers
-│   ├── javascript
-│   ├── jobs
-│   ├── mailers
-│   ├── models
-│   ├── serializers
-│   └── views
-├── bin
-│   ├── rails
-│   ├── rake
-│   ├── webpack
-│   └── webpack-dev-server
-├── config
-│   ├── application.rb
-│   ├── cable.yml
-│   ├── credentials.yml.enc
-│   ├── database.yml
-│   ├── environment.rb
-│   ├── environments
-│   ├── initializers
-│   ├── locales
-│   ├── puma.rb
-│   ├── routes.rb
-│   ├── sidekiq.yml
-│   └── webpacker.yml
-├── db
-│   ├── migrate
-│   ├── schema.rb
-│   └── seeds.rb
-├── docker-compose.yml
-├── entrypoint.sh
-├── lib
-│   └── tasks
-├── public
-│   ├── 404.html
-│   ├── 422.html
-│   ├── 500.html
-│   ├── favicon.ico
-│   └── robots.txt
-├── spec
-│   ├── factories
-│   ├── models
-│   ├── requests
-│   └── system
-└── storage
-```
+### その他のツール
+| 名称          | 説明                           |
+| ------------- | ------------------------------ |
+| RuboCop       | Rubyコードの静的解析           |
 
 <p align="right">(<a href="#top">トップへ</a>)</p>
+
+## ER図
+dbdiagram.ioで作成しました。
+
+
+
 
 ## 使用技術 (フロントエンド)
 Axios ( ) - 非同期処理、HTTPクライアント
