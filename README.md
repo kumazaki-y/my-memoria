@@ -79,50 +79,11 @@
 <p align="right">(<a href="#top">トップへ</a>)</p>
 
 ## インフラ構成図
+![インフラ構成図]()
 
 
 ## ER図
 ![ER図](https://github.com/kumazaki-y/kumazaki-insta-app/assets/139770475/0a87b02c-dbb2-4603-8003-10d262b1dfbe)
-
-
-
-
-
-## 使用技術 (フロントエンド)
-Axios ( ) - 非同期処理、HTTPクライアント
-
-JQuery ( )- 
-
-## 使用技術 (バックエンド)
-Ruby (2.7.7) - 開発言語
-
-Ruby on Rails(6.0.6.1.) - Webアプリケーションフレームワーク
-
-postgleSQL (14.9) - RDB
-
-Redis (6.0.10) - キャッシュ、セッションストア
-
-Mailgun - メール送受信
-
-RSpec (5.1.2) - テスト
-
-Rubocop()- コード管理
-
-
-## 使用技術 (その他)
-Docker - コンテナ管理
-
-AWS S3 - ストレージ
-
-Heroku - デプロイ
-
-## 今後取り入れたい技術
-GitHub Actions - CI/CD
-
-AWS ECS -
-
-React -
-
 
 
 ## 機能一覧
