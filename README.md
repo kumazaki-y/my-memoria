@@ -63,7 +63,7 @@
 | Docker Compose  1.29.2   |  マルチコンテナの管理                 |
 | Heroku                   | デプロイメントプラットフォーム             |
 | GitHub                   | バージョン管理                       |
-|GitHub Actions            |自動デプロイ機能          |
+|GitHub Actions            |CI/CD、自動デプロイ|
 |AWS S3                    |画像のストレージ|
 
 ### テスト
