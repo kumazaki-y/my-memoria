@@ -80,6 +80,7 @@
 
 ## インフラ構成図
 
+
 ## ER図
 ![ER図](https://github.com/kumazaki-y/kumazaki-insta-app/assets/139770475/0a87b02c-dbb2-4603-8003-10d262b1dfbe)
 
