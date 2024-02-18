@@ -37,6 +37,7 @@ gem 'letter_opener'
 gem 'letter_opener_web', '~>1.0'
 gem 'faker'
 gem 'redis'
+gem 'bootstrap', '~> 4.5.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,0 +1,21 @@
+name: deploy to heroku
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Deploy
+        uses: akhileshns/heroku-[email protected]
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: 'kumazaki-insta-app'
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          usedocker: true
