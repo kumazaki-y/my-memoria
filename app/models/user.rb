@@ -28,7 +28,13 @@ class User < ApplicationRecord
       # デフォルト画像URLまたはnilを返す
     end
   end
-  
+
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.username = "ゲストユーザー"
+      user.password = SecureRandom.urlsafe_base64(15)
+    end
+  end
 
   def has_liked?(article)
     likes.exists?(article_id: article.id)

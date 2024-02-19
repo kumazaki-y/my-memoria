@@ -23,3 +23,8 @@ ja:
         one: "1分未満"
         other: "%{count}分未満"
 
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'バリデーションに失敗しました: %{errors}'
+

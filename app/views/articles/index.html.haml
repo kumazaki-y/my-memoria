@@ -5,3 +5,5 @@
 	%ul.article-list
 		- @articles.each do |article|
 			= render 'common/article', article: article
+
+= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post
