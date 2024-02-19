@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
 
-bundle exec rails db:migrate RAILS_ENV=development
+bundle exec rails db:migrate
 
 exec "$@"
