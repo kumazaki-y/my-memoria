@@ -11,6 +11,8 @@ services:
       - redis
     env_file:
       - .env.development
+    environment:
+      - RUN_MIGRATIONS=true
 
   sidekiq:
     build: .
@@ -20,6 +22,8 @@ services:
     depends_on:
       - db
       - redis
+    environment:
+      - REDIS_URL=redis://redis:6379
 
   redis:
     image: redis:alpine
