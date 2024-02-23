@@ -24,10 +24,10 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: registry.heroku.com/${{ secrets.HEROKU_APP_NAME }}/web
+          tags: registry.heroku.com/kumazaki-insta-app/web
           platforms: linux/amd64
 
       - name: Release Docker image to Heroku
-        run: heroku container:release web -a ${{ secrets.HEROKU_APP_NAME }}
+        run: heroku container:release web -a kumazaki-insta-app
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
