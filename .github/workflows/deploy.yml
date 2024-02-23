@@ -1,4 +1,4 @@
-name: Deploy to Heroku
+name: deploy to heroku with Buildpacks
 
 on:
   push:
@@ -6,28 +6,16 @@ on:
       - master
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Log in to Heroku Container Registry
-        run: echo ${{ secrets.HEROKU_API_KEY }} | docker login --username=_ --password-stdin registry.heroku.com
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v5
+      - name: Deploy
+        uses: akhileshns/heroku-deploy@v3.13.15
         with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: registry.heroku.com/kumazaki-insta-app/web
-          platforms: linux/amd64
-
-      - name: Release Docker image to Heroku
-        run: heroku container:release web -a kumazaki-insta-app
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: 'kumazaki-insta-app'
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          usedocker: false
