@@ -3,7 +3,7 @@ services:
     build: .
     command: bundle exec puma -C config/puma.rb
     volumes:
-      - .:/kumazaki-insta-app
+      - .:/my-memoria
     ports:
       - "3000:3000"
     depends_on:
@@ -19,7 +19,7 @@ services:
     build: .
     command: bundle exec sidekiq -C config/sidekiq.yml
     volumes:
-      - .:/kumazaki-insta-app
+      - .:/my-memoria
     depends_on:
       - db
       - redis
@@ -35,7 +35,7 @@ services:
     build: .
     command: ./bin/webpack-dev-server
     volumes:
-      - .:/kumazaki-insta-app
+      - .:/my-memoria
     ports:
       - "3035:3035"
     depends_on:

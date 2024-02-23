@@ -3,7 +3,7 @@
     "description": "This is instaapp",
     "keywords": [],
     "website": "",
-    "repository": "https://github.com/kumazaki-y/kumazaki-insta-app",
+    "repository": "https://github.com/kumazaki-y/my-memoria",
     "env": {},
     "addons": [
       "heroku-postgresql:hobby-dev"

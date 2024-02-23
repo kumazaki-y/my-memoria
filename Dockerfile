@@ -5,7 +5,7 @@ RUN curl -sL https://deb.nodesource.com/setup_20.x | bash - && \
     apt-get install -y nodejs &&\
     npm install -g yarn
 
-WORKDIR /kumazaki-insta-app
+WORKDIR /my-memoria
 
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
