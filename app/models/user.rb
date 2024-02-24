@@ -34,7 +34,12 @@ class User < ApplicationRecord
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.username = "ゲストユーザー"
       user.password = SecureRandom.urlsafe_base64(15)
+      user.guest = true
     end
+  end
+
+  def guest?
+    self.guest
   end
 
   def has_liked?(article)
