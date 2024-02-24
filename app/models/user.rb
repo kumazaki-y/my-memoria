@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, presence: true, length: { in: 6..20 }
 
+
   has_one :profile, dependent: :destroy
   has_many :articles, dependent: :destroy
   has_many :likes, dependent: :destroy
@@ -31,11 +32,10 @@ class User < ApplicationRecord
   end
 
   def self.guest
-    find_or_create_by!(email: 'guest@example.com') do |user|
-      user.username = "ゲストユーザー"
-      user.password = SecureRandom.urlsafe_base64(15)
-      user.guest = true
-    end
+    token = SecureRandom.urlsafe_base64(15)
+    guest_email = "guest_#{token}@example.com"
+
+    create!(email: guest_email, username: "ゲストユーザー", password: SecureRandom.urlsafe_base64(15), guest: true)
   end
 
   def guest?

@@ -1,4 +1,12 @@
 ja:
+  errors:
+    messages:
+      not_saved: "保存できませんでした。"
+      taken: "はすでに存在しています。"
+      blank: "を入力してください。"
+      too_short: "は%{count}文字以上で入力してください。"
+      too_long: "は%{count}文字以内で入力してください。"
+
   datetime:
     distance_in_words:
       x_years:
