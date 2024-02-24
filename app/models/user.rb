@@ -9,9 +9,10 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { in: 6..20 }
 
   has_one :profile, dependent: :destroy
-  has_many :articles
-  has_many :likes
-  has_many :comments
+  has_many :articles, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
+
 
   has_many :following_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :following, through: :following_relationships, source: :following
@@ -33,7 +34,12 @@ class User < ApplicationRecord
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.username = "ゲストユーザー"
       user.password = SecureRandom.urlsafe_base64(15)
+      user.guest = true
     end
+  end
+
+  def guest?
+    self.guest
   end
 
   def has_liked?(article)
