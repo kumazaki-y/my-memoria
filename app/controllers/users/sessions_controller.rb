@@ -8,8 +8,8 @@ class Users::SessionsController < Devise::SessionsController
     def destroy
         if current_user.guest?
             guest_user = current_user
-            super # Deviseの元のログアウト処理を実行
             guest_user.destroy
+            super # Deviseの元のログアウト処理を実行
         else
             super
         end
