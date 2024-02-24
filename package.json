@@ -1,5 +1,5 @@
 {
-  "name": "kumazaki_insta_app",
+  "name": "my-memoria",
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-methods": "^7.18.6",
