@@ -29,7 +29,7 @@
 5. [機能一覧](#機能一覧)
 
 ## アプリ概要
-技術力の証明を目的に、ポートフォリオとして[画像投稿アプリ (My_MEMO)](https://kumazaki-insta-app-f96286e3999e.herokuapp.com/users/sign_in) を作成しました。 
+技術力の証明を目的に、ポートフォリオとして[画像投稿アプリ (My_MEMO)](https://my-memoria-f96286e3999e.herokuapp.com/users/sign_in) を作成しました。 
 
 スクールで学んだ技術のアウトプットのほか、独自に学習した機能を追加することに挑戦しています。
 
@@ -79,11 +79,11 @@
 <p align="right">(<a href="#top">トップへ</a>)</p>
 
 ## インフラ構成図
-![インフラ構成図](https://github.com/kumazaki-y/kumazaki-insta-app/assets/139770475/07c2efac-d86e-40ef-a1ac-7a0f814565df)
+![インフラ構成図](https://github.com/kumazaki-y/my-memoria/assets/139770475/07c2efac-d86e-40ef-a1ac-7a0f814565df)
 
 
 ## ER図
-![ER図](https://github.com/kumazaki-y/kumazaki-insta-app/assets/139770475/0a87b02c-dbb2-4603-8003-10d262b1dfbe)
+![ER図](https://github.com/kumazaki-y/my-memoria/assets/139770475/0a87b02c-dbb2-4603-8003-10d262b1dfbe)
 
 
 ## 機能一覧

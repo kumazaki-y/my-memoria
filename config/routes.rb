@@ -15,6 +15,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'articles#index'
 
+# ルートドメインからwwwサブドメインへのリダイレクト
+constraints(host: /^my-memoria\.com$/) do
+  match '(*any)' => redirect { |params, req| "https://www.my-memoria.com/#{params[:any]}" }, via: :all
+end
+
   resources :articles do
     resource :like, only: [:create, :destroy]
     resources :comments, only: [:index,:show, :create, :destroy]
