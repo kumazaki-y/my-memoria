@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 60px;
   margin-bottom: 30px;
 
 
@@ -15,7 +15,7 @@
   }
 
   .article-new-post {
-      background-color: #3498db;
+      background-color: #007BFF;
       color: white;
   }
 
@@ -24,6 +24,7 @@
   }
 }
 
+// 投稿ページ/////////////////////////////
 .article-new-profile {
   display: flex;
   align-items: center;
@@ -80,10 +81,11 @@
     }
   }
 }
+// 投稿ページ/////////////////////////////
 
 
 .timeline-page {
-  margin-top: 30px;
+  margin-top: 60px;
   .post-btn ,.search-btn {
     max-width: 20px;
     max-height: 20px;

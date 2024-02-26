@@ -1,18 +1,21 @@
-= image_tag("Rectangle.png", alt: "ログイン画像", class: "image")
-.form
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-    = render "devise/shared/error_messages", resource: resource
-    .field
-      = f.label :Account,class: "f-label"
-      %br/
-      = f.text_field :username, autofocus: true,class: "form"
-    .field
-      = f.label :Email,class: "f-label"
-      %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email",class: "form"
-    .field
-      = f.label :Password,class: "f-label"
-      %br/
-      = f.password_field :password, autocomplete: "new-password",class: "form"
-    .submit
-      = f.submit "CREATE ACCOUNT",class: "btn btn-primary"
+.container
+  .row.justify-content-center
+    .col-12
+      %p.display-4 Create New account
+      .form
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          .field
+            = f.label :Account,class: "f-label"
+            %br/
+            = f.text_field :username, autofocus: true,class: "form"
+          .field
+            = f.label :Email,class: "f-label"
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email",class: "form"
+          .field
+            = f.label :Password,class: "f-label"
+            %br/
+            = f.password_field :password, autocomplete: "new-password",class: "form"
+          .submit
+            = f.submit "Submit",class: "btn btn-primary"

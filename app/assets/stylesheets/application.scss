@@ -14,8 +14,7 @@ body{
 
 .container {
     margin: 0 auto;
-    margin-top: 60px;
-    padding: 30px 15px;
+    margin-top: 20px;
     color: #333A42;
     font-family: Poppins Medium;
     font-size: 16px;
@@ -28,13 +27,21 @@ body{
     height: auto;
   }
 // //////////boostrapのデフォルトcssを無効化/////////////////////////////////////////
-  .custom-img {
-    box-sizing: content-box !important;
+.custom-img {
+  box-sizing: content-box !important;
 }
 
 .custom-link {
   color: inherit;      /* 親要素の色を継承 */
   text-decoration: none !important; 
+}
+
+.custom-link-btn {
+  color: rgb(255, 255, 255);
+  text-decoration: none !important; 
+  a:hover{
+    color: rgb(255, 255, 255) !important;
+  }
 }
 
  a:hover {

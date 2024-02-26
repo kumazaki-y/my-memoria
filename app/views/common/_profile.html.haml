@@ -21,7 +21,7 @@
   .stat-item
     = link_to account_followings_path(@user), class: 'following-link custom-link' do
       %div= @user.following.count
-      %p following
+      %p Following
 
 .posts-timeline
   - @user.articles.order(created_at: :desc).each do |article|
