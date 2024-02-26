@@ -1,7 +1,11 @@
-= link_to 'Back', :back
-= form_with url: search_index_path, method: :get, local: true do |f|
-    = f.text_field :query, class:'search-form'
-    = f.submit "search", class:'search-form searching'
+= link_to 'Back', :back, class: 'custom-link'
+.container
+    = form_with url: search_index_path, method: :get, local: true do |f|
+        .row
+            .col
+                = f.text_field :query, class: 'form-control search-form'
+            .col-auto
+                = f.submit "Search", class: 'btn btn-primary search-form searching'
 
 - if @articles.any?
     %ul.article-list

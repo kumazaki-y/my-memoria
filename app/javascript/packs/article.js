@@ -1,5 +1,6 @@
 import $ from 'jquery';
 
+// 画像プレビュー///////////////////////////////////////////////
 $(function() {
   const fileInput = $('.article-new-file-input');
   const previewArea = $('.article-new-preview');
@@ -7,11 +8,15 @@ $(function() {
   fileInput.on('change', function() {
       const files = this.files;
       previewArea.empty();
+      previewArea.addClass('d-flex flex-row flex-wrap');// プレビューエリアをフレックスコンテナとして設定
 
       $.each(files, function(index, file) {
-          const img = $('<img>').addClass('preview-image');
+          const colDiv = $('<div>').addClass('col');//各画像にグリッドシステムを適用
+          const img = $('<img>').addClass('preview-image img-fluid');//img-fluidで画像をレスポンシブに
           img[0].file = file;
-          previewArea.append(img);
+
+          colDiv.append(img);
+          previewArea.append(colDiv);
 
           const reader = new FileReader();
           reader.onload = function(e) {
@@ -21,8 +26,10 @@ $(function() {
       });
   });
 });
+// 画像プレビュー///////////////////////////////////////////////
 
 
+// モーダルウィンドウ///////////////////////////////////////////////
 $(function() {
   var images = []; // 画像のURLを格納する配列
   var currentIndex = 0;
@@ -71,3 +78,4 @@ $(function() {
     }
   });
 });
+// モーダルウィンドウ///////////////////////////////////////////////

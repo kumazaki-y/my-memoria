@@ -1,4 +1,4 @@
-= link_to 'Back', :back
+= link_to 'Back', :back, class: 'custom-link'
 .comment-btn-container
   = button_tag "Comment", type: "button", id: "show_comment_form_btn", class: 'comment-btn'
 
@@ -9,4 +9,4 @@
       = f.submit "Post Comment", class: 'comment-btn', data: { disable_with: false }
 
 
-.comments{ data: { article_id: @article.id, default_avatar_url: @default_avatar_url } }
+.comments{ data: { article_id: @article.id, default_avatar_url: @default_avatar_url, trash_icon_url: asset_path('trash.png') } }

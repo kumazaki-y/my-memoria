@@ -1,6 +1,6 @@
 .timeline-page
-	= link_to image_tag('photo-camera.png', alt: '投稿', class: 'post-btn'), new_article_path
-	= link_to image_tag('search.png', alt: '検索', class: 'search-btn'), search_index_path
+	= link_to image_tag('photo-camera.png', alt: '投稿', class: 'post-btn custom-img'), new_article_path
+	= link_to image_tag('search.png', alt: '検索', class: 'search-btn custom-img'), search_index_path
 
 	%ul.article-list
 		- @articles.each do |article|

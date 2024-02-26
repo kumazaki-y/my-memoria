@@ -1,10 +1,10 @@
 %ul.user-list
   - users&.each do |user|
     %li.user-item
-      = link_to account_path(id: user.id), class: 'user-link' do
+      = link_to account_path(id: user.id), class: 'user-link custom-link' do
         = image_tag(user.profile.avatar.presence || 'default-avatar.png', class: 'user-avatar')
         .user-info
-          %span.user-name= user.username
+          %span.user-name= user.display_name.present? ? user.display_name : user.username
           - if user.last_active_at && user.last_active_at > 5.minutes.ago
             %span.user-last-login オンライン
           - else

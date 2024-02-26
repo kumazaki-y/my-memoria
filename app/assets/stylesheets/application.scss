@@ -8,12 +8,13 @@
 
 
 
+body{
+  margin: 20px;
+}
+
 .container {
-    width: 100%;
-    max-width: 360px;
     margin: 0 auto;
-    margin-top: 50px;
-    padding: 30px 15px;
+    margin-top: 20px;
     color: #333A42;
     font-family: Poppins Medium;
     font-size: 16px;
@@ -23,15 +24,30 @@
   }
 
   img {
-    max-width: 100%;
     height: auto;
   }
-
-a {
-  color: inherit;      /* 親要素の色を継承 */
-  text-decoration: none;
+// //////////boostrapのデフォルトcssを無効化/////////////////////////////////////////
+.custom-img {
+  box-sizing: content-box !important;
 }
 
+.custom-link {
+  color: inherit;      /* 親要素の色を継承 */
+  text-decoration: none !important; 
+}
+
+.custom-link-btn {
+  color: rgb(255, 255, 255);
+  text-decoration: none !important; 
+  a:hover{
+    color: rgb(255, 255, 255) !important;
+  }
+}
+
+ a:hover {
+  color: #000000 !important;
+}
+////////////////////////////////////////////////////////////////////////////////
 .notice, .alert {
   padding: 10px;
   border-radius: 5px;
@@ -70,13 +86,9 @@ a {
 .menu-container {
   position: fixed;
   top: 5px;
-  right: 15px;
+  right: 20px;
   z-index: 1000;
   display: flex;
-
-  @media (min-width: 1px) {
-    right: calc(50% - 172px); // ビューポートの中央から左に移動
-  }
 
   .menu-button {
     position: relative;
@@ -103,14 +115,15 @@ a {
 
   .dropdown-menu {
     display: none;
-    position: absolute;
     top: 50px;
-    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: #ffffff;
     min-width: 80px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 12px 16px;
     z-index: 1000;
+    box-sizing: content-box;
 
     .dropdown-link {
       display: block;

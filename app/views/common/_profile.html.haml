@@ -1,10 +1,10 @@
 .profile-header
-  = link_to 'Back', :back
+  = link_to 'Back', :back, class: 'custom-link'
   - unless current_user == @user
     %button.follow-btn{ data: { user_id: @user.id, relationship_status: current_user.following?(@user) ? 'unfollow' : 'follow' } }
       = current_user.following?(@user) ? 'Unfollow' : 'Follow'
 .profile-info
-  %p= @user.username
+  %p= @user.display_name.present? ? @user.display_name : @user.username
 
 = image_tag(@user.profile.avatar.presence || 'default-avatar.png', class: 'profile-avatar')
 
@@ -15,20 +15,18 @@
     %div= @user.articles.count
     %p Posts
   .stat-item
-    = link_to account_followers_path(@user), class: 'follower-link' do
+    = link_to account_followers_path(@user), class: 'follower-link custom-link' do
       %div#follower-count= @user.follower.count
       %p Followers
   .stat-item
-    = link_to account_followings_path(@user), class: 'following-link' do
+    = link_to account_followings_path(@user), class: 'following-link custom-link' do
       %div= @user.following.count
-      %p following
+      %p Following
 
 .posts-timeline
   - @user.articles.order(created_at: :desc).each do |article|
     .article-image-container
       - case article.images.count
-      - when 0
-        = image_tag 'default-image.png', class: 'single-image article-image', alt: 'デフォルト画像', data: { target: 'default-image.png' }
       - when 1
         = image_tag article.images.first, class: 'single-image article-image', data: { target: rails_blob_path(article.images.first, only_path: true) }
       - when 2
