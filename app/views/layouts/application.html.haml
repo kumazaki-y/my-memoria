@@ -8,20 +8,25 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
+
   %body
     - if notice
       %p.notice= notice
     - if alert
       %p.alert= alert
 
-    - if user_signed_in?
-      .menu-container
-        %button.menu-button Menu
-        .dropdown-menu
-          = link_to 'Home', root_path, class: 'dropdown-link'
-          = link_to 'Profile', profile_path(current_user), class: 'dropdown-link'
-          = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-link'
-          
     .container
-      = yield
+      .row
+        - if user_signed_in?
+          .col-12
+            .menu-container
+              %button.menu-button Menu
+              .dropdown-menu
+                = link_to 'Home', root_path, class: 'dropdown-link'
+                = link_to 'Profile', profile_path(current_user), class: 'dropdown-link'
+                = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-link'
+        .col-12
+          .content
+            = yield
+ 
   %footer

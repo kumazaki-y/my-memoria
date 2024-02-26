@@ -4,13 +4,13 @@
       %p= message
 
   .article-new-header
-    = link_to 'Back', :back, class: 'btn article-new-cancel'
+    = link_to 'Back', :back, class: 'btn article-new-cancel custom-link'
     .article-new-status New Post
     = f.submit 'Post', class: ' btn article-new-post'
   
   .article-new-profile
     = image_tag(@profile.avatar.presence || 'default-avatar.png', class: 'article-new-avatar')
-    %span.article-new-username= @profile.user.username
+    %span.article-new-username= @profile.user.display_name.present? ? @profile.user.display_name : @profile.user.username
 
   .article-new-textarea
     = f.text_area :content, class: 'article-new-input', placeholder: "What's on your mind?"

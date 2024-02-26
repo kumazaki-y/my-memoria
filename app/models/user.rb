@@ -34,8 +34,9 @@ class User < ApplicationRecord
   def self.guest
     token = SecureRandom.urlsafe_base64(15)
     guest_email = "guest_#{token}@example.com"
+    guest_username = "ゲストユーザー_#{token}" # 一意のユーザーネームを生成
 
-    create!(email: guest_email, username: "ゲストユーザー", password: SecureRandom.urlsafe_base64(15), guest: true)
+    create!(email: guest_email, username: guest_username, password: SecureRandom.urlsafe_base64(15), guest: true, display_name: "ゲストユーザー")
   end
 
   def guest?

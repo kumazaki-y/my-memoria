@@ -15,11 +15,17 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
+import { csrfToken } from '@rails/ujs';
 import Rails from "@rails/ujs";
 import axios from 'axios';
 import $ from 'jquery';
-import { csrfToken } from '@rails/ujs';
+import 'bootstrap';
+import Popper from 'popper.js'
+window.jQuery = $;
+window.$ = $;
+window.Popper = Popper
+import '../stylesheets/application'
+
 
 Rails.start();
 
