@@ -265,31 +265,54 @@
   background-color: rgba(0, 0, 0, 0.4);
 
     &-content {
-      margin: 15% auto;
-      padding: 20px;
-      width: 80%;
-      position: relative;
+      max-width: 2000px; 
+      max-height: 2000px;
+      position: absolute;
+      top: 50%; /* 上端から画面の50%の位置に */
+      left: 50%; /* 左端から画面の50%の位置に */
+      transform: translate(-50%, -50%); /* 自身のサイズの半分だけ左上に移動して中央に配置 */
+      padding: 10px;
+      background-color: #fff;
+      display: flex; /* Flexboxを使用して中身を整列 */
+      align-items: center; /* 縦方向の中央揃え */
+      justify-content: center; /* 横方向の中央揃え */
+    }
+
+    .modal-image {
+      max-width: 90%; /* 画像の最大幅を親要素の90%に設定 */
+      max-height: 80vh; /* 画像の最大高さをビューポート高の80%に設定 */
+      object-fit: contain; /* 画像のアスペクト比を保持 */
+    }
+
+    .close,
+    .left-arrow,
+    .right-arrow {
+      color: #ffffff;
+      background-color: #000000;
+      font-size: 28px;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+
     }
 
     .close {
-      position: absolute;
-      right: -10px;
-      top: 20px;
-      float: right;
+      right: 5px;
+      top: 5px;
     }
 
     .left-arrow,
     .right-arrow {
-      position: fixed;
-      top:30px;
+      top: 50%;
+      transform: translateY(-50%);
       }
 
     .left-arrow {
-      left: 15px;
+      left: 0px;
     }
 
     .right-arrow {
-      right: 15px;
+      right: 0px;
     }
 
     .modal-btn{
