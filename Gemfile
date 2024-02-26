@@ -26,37 +26,34 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
-
-gem 'devise'
-gem 'hamlit'
-gem 'aws-sdk-s3', require: false
 gem 'active_model_serializers'
-gem 'sidekiq'
+gem 'aws-sdk-s3', require: false
+gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootstrap', '~> 4.5.2'
+gem 'devise'
+gem 'faker'
+gem 'hamlit'
 gem 'letter_opener'
 gem 'letter_opener_web', '~>1.0'
-gem 'faker'
 gem 'redis'
-gem 'bootstrap', '~> 4.5.2'
+gem 'sidekiq'
 
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'dotenv-rails'
-  gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'rspec-rails'
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'erb2haml'
-
 end
 
 group :test do
