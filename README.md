@@ -73,7 +73,8 @@
 
 <p align="right">(<a href="#top">トップへ</a>)</p>
 
-## インフラ構成図(draw.io使用)
+## インフラ構成図
+draw.io使用
 ![インフラ構成図](https://github.com/kumazaki-y/my-memoria/assets/139770475/19045e64-8059-4c9a-8918-888213648fd9)
 
 
