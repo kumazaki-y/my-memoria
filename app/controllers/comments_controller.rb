@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
         format.json do # JSONレスポンスとしてコメントデータを返す
           comments_json = @comments.as_json(include: {
             user: {
-              only: [:username, :id], # 必要なユーザー情報を指定
+              only: [:username, :display_name, :id], # 必要なユーザー情報を指定
               methods: :profile_image_url # プロフィール画像のURLを返すメソッド
             }
           })
@@ -32,7 +32,7 @@ class CommentsController < ApplicationController
       if @comment.save
         comment_data = @comment.as_json(include: {
           user: {
-            only: [:username, :id],
+            only: [:username, :display_name, :id],
             methods: :profile_image_url
           }
         })
