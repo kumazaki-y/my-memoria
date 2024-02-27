@@ -7,6 +7,35 @@
   }
 }
 
+.custom-row {
+  margin-top: -100px;
+}
+
+.custom-img-container {
+  position: relative;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  border-radius: 10px;
+  max-width: 300px;
+}
+
+@media (max-width: 768px) {
+  .overlay-text {
+    font-size: 14px; /* テキストのフォントサイズを小さくする */
+  }
+}
+
+
 .login-img{
   width: 100%;
 }
@@ -23,10 +52,10 @@
 
 
 .form {
-    padding: 20px;
+    padding: 10px;
 
     .field {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
 
       .f-label {
         margin-bottom: 5px;

@@ -1,5 +1,5 @@
 .container
-  .row.align-items-center.mb-2
+  .row.align-items-center.mb-2.custom-row
     .col-auto
       %p.display-4 My-Memoria
     .col-auto
@@ -8,8 +8,11 @@
     .col-auto
       = link_to "Sign Up", new_user_registration_path, class: "custom-link"
 
-  = image_tag("Rectangle.png", alt: "ログイン画像", class: "custom-img login-img mt-2 img-fluid")
-
+  %div.position-relative.text-center.custom-img-container
+    = image_tag("Rectangle.png", alt: "ログイン画像", class: "custom-img login-img mt-1 img-fluid")
+    %div.overlay-text.position-absolute.w-100.h-20.d-flex.justify-content-center.align-items-center
+      %p.lead.font-weight-bold.text-black-90
+        思い出を共有しよう
 
   .form
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
