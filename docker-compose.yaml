@@ -12,7 +12,6 @@ services:
     env_file:
       - .env
       - .env.development
-      - .env.production
     environment:
       - RUN_MIGRATIONS=true
       - REDIS_URL=redis://redis:6379
